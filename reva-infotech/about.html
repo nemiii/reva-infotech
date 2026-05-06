@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Reva Infotech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#f7eef6;
+      --bg-2:#f4edf8;
+      --paper:#fcfaf7;
+      --paper-2:#f3f0e7;
+      --paper-3:#eef3f4;
+      --text:#4d3f4b;
+      --muted:#8a7f8b;
+      --line:rgba(164,145,174,.18);
+      --accent:#7e3ff0;
+      --accent-2:#b97cff;
+      --white:#fff;
+      --green:#465244;
+      --green-text:#eef2eb;
+    }
+    html{scroll-behavior:smooth}
+    body{
+      min-height:100vh;
+      font-family:'Inter',sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 18% 88%, rgba(239,190,250,.38), transparent 30%),
+        radial-gradient(circle at 82% 84%, rgba(224,198,255,.45), transparent 26%),
+        radial-gradient(circle at 50% 24%, rgba(255,255,255,.8), transparent 42%),
+        linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 100%);
+      padding:4px;
+    }
+    a{text-decoration:none}
+    .hero-shell{
+      border:1px solid rgba(177,162,196,.24);
+      border-radius:30px;
+      overflow:hidden;
+      position:relative;
+      background:
+        radial-gradient(circle at 10% 92%, rgba(246,186,242,.26), transparent 28%),
+        radial-gradient(circle at 92% 86%, rgba(220,204,255,.36), transparent 24%),
+        linear-gradient(180deg, rgba(255,255,255,.42) 0%, rgba(255,255,255,.18) 100%);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.6);
+    }
+    .hero-shell::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at 50% 52%, rgba(255,255,255,.35), transparent 36%);
+      pointer-events:none;
+    }
+    .topbar{
+      width:min(1120px, calc(100vw - 72px));
+      margin:18px auto 0;
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      gap:20px;
+      position:relative;
+      z-index:2;
+    }
+    .nav{
+      display:flex;
+      gap:36px;
+      align-items:center;
+    }
+    .nav a{
+      color:#6e6573;
+      font-size:15px;
+      font-weight:600;
+    }
+    .nav a span{opacity:.65}
+    .brand{
+      justify-self:center;
+      width:44px;
+      height:44px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .brand-mark{
+      width:34px;
+      height:26px;
+      position:relative;
+      filter:drop-shadow(0 8px 18px rgba(126,63,240,.28));
+    }
+    .brand-mark::before,
+    .brand-mark::after{
+      content:'';
+      position:absolute;
+      top:0;
+      width:16px;
+      height:24px;
+      border-radius:6px 0 0 6px;
+      background:linear-gradient(180deg, #b462ff 0%, #6f2de8 100%);
+      clip-path:polygon(100% 0, 0 50%, 100% 100%);
+    }
+    .brand-mark::before{left:0}
+    .brand-mark::after{
+      right:0;
+      transform:scaleX(-1);
+      border-radius:0 6px 6px 0;
+    }
+    .nav-cta{
+      justify-self:end;
+      min-height:44px;
+      padding:0 22px;
+      border-radius:999px;
+      border:1px solid rgba(118,103,132,.12);
+      background:rgba(255,255,255,.84);
+      box-shadow:0 6px 14px rgba(78,63,93,.06);
+      color:#37313a;
+      font-size:15px;
+      font-weight:700;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .hero-content{
+      width:min(1120px, calc(100vw - 48px));
+      margin:78px auto 0;
+      padding-bottom:92px;
+      position:relative;
+      z-index:2;
+    }
+    .hero-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:12px;
+      min-height:46px;
+      padding:0 18px;
+      border-radius:999px;
+      border:1px solid rgba(182,164,193,.24);
+      background:rgba(255,255,255,.46);
+      box-shadow:0 10px 20px rgba(121,98,145,.08);
+      color:#625967;
+      font-size:15px;
+      font-weight:600;
+    }
+    .hero-badge-icon{
+      width:20px;
+      height:20px;
+      border-radius:4px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.34) 50%, transparent 50%),
+        linear-gradient(180deg, rgba(255,255,255,.34) 50%, transparent 50%),
+        linear-gradient(135deg, #e28dff 0%, #8e4cff 100%);
+      background-size:10px 100%, 100% 10px, 100% 100%;
+    }
+    .hero-grid{
+      margin-top:30px;
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:42px;
+      align-items:center;
+    }
+    .hero-title{
+      font-family:'Instrument Serif',serif;
+      font-size:clamp(60px,7vw,96px);
+      line-height:.95;
+      letter-spacing:-2.4px;
+      color:#493d47;
+      max-width:760px;
+    }
+    .hero-title em{font-style:italic;font-weight:400}
+    .hero-copy{
+      color:#8e808e;
+      font-size:20px;
+      line-height:1.56;
+    }
+    .hero-actions{
+      margin-top:28px;
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .btn-primary,.btn-secondary{
+      min-height:54px;
+      padding:0 24px;
+      border-radius:999px;
+      font-size:16px;
+      font-weight:700;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .btn-primary{
+      background:linear-gradient(180deg, #9654ff 0%, #6d2ee8 100%);
+      color:#fff;
+      box-shadow:0 10px 20px rgba(121,68,231,.28);
+    }
+    .btn-secondary{
+      border:1px solid rgba(167,149,186,.2);
+      background:rgba(255,255,255,.64);
+      color:#584d58;
+      box-shadow:0 10px 26px rgba(121,98,145,.1);
+    }
+    .hero-visual{
+      border-radius:30px;
+      background:rgba(255,255,255,.66);
+      border:1px solid rgba(182,164,193,.24);
+      box-shadow:0 18px 34px rgba(108,91,124,.08);
+      padding:28px;
+      min-height:360px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-visual::before{
+      content:'';
+      position:absolute;
+      inset:-20% auto auto -10%;
+      width:240px;
+      height:240px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(181,124,255,.22) 0%, rgba(181,124,255,0) 68%);
+    }
+    .hero-panel{
+      position:relative;
+      border-radius:24px;
+      background:linear-gradient(180deg, #fdfbfd 0%, #f3ecfb 100%);
+      border:1px solid rgba(182,164,193,.18);
+      padding:22px;
+      min-height:304px;
+    }
+    .hero-panel h3{
+      font-family:'Instrument Serif',serif;
+      font-size:28px;
+      line-height:1.05;
+      color:#534857;
+      margin-bottom:18px;
+    }
+    .stack{
+      display:grid;
+      gap:14px;
+    }
+    .stack-card{
+      border-radius:18px;
+      background:#fff;
+      border:1px solid rgba(182,164,193,.18);
+      padding:16px;
+      box-shadow:0 8px 16px rgba(108,91,124,.05);
+    }
+    .stack-card strong{
+      display:block;
+      color:#554b58;
+      font-size:16px;
+      margin-bottom:8px;
+    }
+    .stack-card span{
+      display:block;
+      color:#8c818d;
+      font-size:14px;
+      line-height:1.45;
+    }
+    .section{padding:86px 0}
+    .section.alt{background:var(--paper-2)}
+    .section.cool{background:var(--paper-3)}
+    .shell{width:min(1120px, calc(100vw - 56px));margin:0 auto}
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:24px;
+      margin-bottom:38px;
+    }
+    .eyebrow{
+      color:#978d96;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-weight:700;
+    }
+    .section-title{
+      margin-top:12px;
+      font-family:'Instrument Serif',serif;
+      font-size:clamp(44px,5vw,72px);
+      line-height:1.02;
+      letter-spacing:-1.7px;
+      color:#554956;
+      max-width:780px;
+    }
+    .section-copy{
+      max-width:430px;
+      color:#8c828d;
+      font-size:18px;
+      line-height:1.52;
+    }
+    .story-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:28px;
+      align-items:start;
+    }
+    .story-card{
+      border-radius:28px;
+      border:1px solid rgba(182,164,193,.18);
+      background:rgba(255,255,255,.88);
+      box-shadow:0 18px 30px rgba(108,91,124,.08);
+      padding:30px;
+    }
+    .story-card p{
+      color:#7e7480;
+      font-size:17px;
+      line-height:1.58;
+      margin-bottom:18px;
+    }
+    .story-card .lead{
+      font-size:21px;
+      color:#564b57;
+      line-height:1.45;
+    }
+    .section-actions{
+      margin-top:26px;
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .stats-grid{
+      display:grid;
+      grid-template-columns:repeat(5, minmax(0, 1fr));
+      gap:18px;
+    }
+    .stat-card{
+      border-radius:24px;
+      background:rgba(255,255,255,.78);
+      border:1px solid rgba(181,170,154,.2);
+      box-shadow:0 14px 24px rgba(113,103,92,.06);
+      padding:24px;
+      text-align:center;
+    }
+    .stat-card strong{
+      display:block;
+      font-family:'Instrument Serif',serif;
+      font-size:38px;
+      line-height:1;
+      color:#554a55;
+      letter-spacing:-1.3px;
+    }
+    .stat-card span{
+      display:block;
+      margin-top:10px;
+      color:#918882;
+      font-size:15px;
+      line-height:1.4;
+    }
+    .leader-band{
+      border-radius:34px;
+      background:var(--green);
+      color:var(--green-text);
+      padding:72px;
+      display:grid;
+      grid-template-columns:.78fr 1.22fr;
+      gap:54px;
+      align-items:center;
+    }
+    .leader-card{
+      border-radius:28px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      padding:28px;
+      min-height:360px;
+      position:relative;
+      overflow:hidden;
+    }
+    .leader-portrait{
+      width:132px;
+      height:132px;
+      border-radius:32px;
+      background:linear-gradient(135deg,#d8bcff 0%,#8c55f1 100%);
+      box-shadow:0 16px 28px rgba(24,27,24,.18);
+      margin-bottom:22px;
+      position:relative;
+    }
+    .leader-portrait::before,
+    .leader-portrait::after{
+      content:'';
+      position:absolute;
+      background:rgba(255,255,255,.9);
+      left:50%;
+      transform:translateX(-50%);
+    }
+    .leader-portrait::before{
+      top:28px;
+      width:42px;
+      height:42px;
+      border-radius:50%;
+    }
+    .leader-portrait::after{
+      bottom:22px;
+      width:70px;
+      height:42px;
+      border-radius:22px 22px 18px 18px;
+    }
+    .leader-card small{
+      color:#bfc7bc;
+      font-size:13px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      display:block;
+      margin-bottom:8px;
+    }
+    .leader-card h3{
+      font-family:'Instrument Serif',serif;
+      font-size:38px;
+      line-height:1;
+      color:#f2f5ef;
+      margin-bottom:10px;
+    }
+    .leader-card p{
+      color:#c4cbc1;
+      font-size:16px;
+      line-height:1.52;
+    }
+    .leader-copy h2{
+      font-family:'Instrument Serif',serif;
+      font-size:clamp(44px,5vw,70px);
+      line-height:1.02;
+      letter-spacing:-1.6px;
+      color:#f2f5ef;
+      margin-bottom:18px;
+    }
+    .leader-copy p{
+      color:#c7cec5;
+      font-size:18px;
+      line-height:1.55;
+      margin-bottom:18px;
+    }
+    .approach-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:22px;
+    }
+    .approach-card{
+      border-radius:28px;
+      border:1px solid rgba(182,164,193,.18);
+      background:rgba(255,255,255,.88);
+      box-shadow:0 18px 30px rgba(108,91,124,.08);
+      padding:28px;
+    }
+    .approach-art{
+      height:170px;
+      border-radius:22px;
+      background:
+        radial-gradient(circle at 24% 20%, rgba(255,255,255,.8), transparent 28%),
+        linear-gradient(135deg, #f2d3ff 0%, #c0b3ff 50%, #8c55f1 100%);
+      margin-bottom:22px;
+      position:relative;
+      overflow:hidden;
+    }
+    .approach-art::before,
+    .approach-art::after{
+      content:'';
+      position:absolute;
+      border-radius:18px;
+      background:rgba(255,255,255,.28);
+      border:1px solid rgba(255,255,255,.2);
+    }
+    .approach-art::before{
+      inset:24px 24px auto 24px;
+      height:32px;
+    }
+    .approach-art::after{
+      inset:auto 24px 24px 24px;
+      height:62px;
+    }
+    .approach-card small{
+      display:block;
+      color:#a2939d;
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-weight:700;
+      margin-bottom:10px;
+    }
+    .approach-card h3{
+      font-family:'Instrument Serif',serif;
+      font-size:34px;
+      line-height:1.02;
+      letter-spacing:-1px;
+      color:#514552;
+      margin-bottom:14px;
+    }
+    .approach-card p{
+      color:#847986;
+      font-size:16px;
+      line-height:1.5;
+      margin-bottom:18px;
+    }
+    .checklist{display:grid;gap:12px}
+    .checklist li{
+      list-style:none;
+      display:flex;
+      gap:12px;
+      color:#665c68;
+      font-size:15px;
+      font-weight:600;
+      line-height:1.4;
+    }
+    .checklist li::before{
+      content:'✓';
+      width:24px;
+      height:24px;
+      border-radius:999px;
+      background:#f1ebfa;
+      color:#7e3ff0;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
+      font-size:14px;
+      font-weight:700;
+    }
+    .detail-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:22px;
+    }
+    .detail-card{
+      border-radius:26px;
+      background:rgba(255,255,255,.88);
+      border:1px solid rgba(182,164,193,.18);
+      box-shadow:0 18px 30px rgba(108,91,124,.08);
+      padding:26px;
+    }
+    .detail-card h3{
+      font-family:'Instrument Serif',serif;
+      font-size:32px;
+      line-height:1.04;
+      color:#564a56;
+      margin-bottom:14px;
+    }
+    .detail-card p{
+      color:#8b7f8b;
+      font-size:16px;
+      line-height:1.52;
+      margin-bottom:16px;
+    }
+    .detail-card ul{display:grid;gap:12px}
+    .detail-card li{
+      list-style:none;
+      color:#6d6470;
+      font-size:15px;
+      line-height:1.45;
+      padding-left:18px;
+      position:relative;
+    }
+    .detail-card li::before{
+      content:'';
+      position:absolute;
+      left:0;
+      top:.62em;
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:#8d55f1;
+    }
+    .cta-panel{
+      border-radius:34px;
+      background:#fcfbf8;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.7);
+      padding:86px 24px 92px;
+      text-align:center;
+    }
+    .cta-panel h2{
+      font-family:'Instrument Serif',serif;
+      font-size:clamp(58px,6vw,92px);
+      line-height:1.03;
+      letter-spacing:-2.2px;
+      color:#504944;
+      max-width:840px;
+      margin:0 auto;
+    }
+    .cta-panel p{
+      max-width:620px;
+      margin:22px auto 0;
+      color:#938983;
+      font-size:20px;
+      line-height:1.5;
+    }
+    .hero-form{
+      margin:42px auto 0;
+      width:min(500px, 100%);
+      min-height:76px;
+      padding:8px;
+      border-radius:999px;
+      border:1px solid rgba(167,149,186,.2);
+      background:rgba(255,255,255,.6);
+      box-shadow:0 10px 26px rgba(121,98,145,.1);
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .hero-form input{
+      flex:1;
+      min-width:0;
+      border:none;
+      outline:none;
+      background:transparent;
+      padding:0 22px;
+      color:#615663;
+      font-size:18px;
+      font-family:'Inter',sans-serif;
+    }
+    .hero-form button{
+      border:none;
+      min-height:60px;
+      padding:0 32px;
+      border-radius:999px;
+      background:linear-gradient(180deg, #9654ff 0%, #6d2ee8 100%);
+      color:#fff;
+      font-size:18px;
+      font-weight:700;
+      font-family:'Inter',sans-serif;
+      box-shadow:0 10px 20px rgba(121,68,231,.28);
+      cursor:pointer;
+    }
+    .hero-note{
+      margin-top:18px;
+      color:#918793;
+      font-size:15px;
+      font-weight:500;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+    }
+    .hero-note::before{
+      content:'⌘';
+      font-size:18px;
+      line-height:1;
+      opacity:.8;
+    }
+    .footer-area{
+      margin-top:52px;
+      padding-top:28px;
+      border-top:1px solid rgba(191,182,168,.32);
+      display:grid;
+      grid-template-columns:1.2fr 1fr 1fr 1fr;
+      gap:42px;
+      align-items:start;
+    }
+    .footer-brand{color:#60574f}
+    .footer-brand .brand-row{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:18px;
+      font-weight:700;
+      margin-bottom:8px;
+    }
+    .footer-brand-mark{
+      width:24px;
+      height:24px;
+      border-radius:8px;
+      background:linear-gradient(180deg,#b462ff 0%,#6f2de8 100%);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-size:12px;
+    }
+    .footer-brand p{
+      color:#948b83;
+      font-size:16px;
+      line-height:1.42;
+      margin-bottom:18px;
+    }
+    .footer-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:40px;
+      padding:0 18px;
+      border-radius:999px;
+      border:1px solid rgba(188,178,164,.22);
+      background:#fff;
+      color:#665e57;
+      font-size:15px;
+      font-weight:700;
+      box-shadow:0 6px 12px rgba(113,103,92,.04);
+    }
+    .footer-col h4{
+      color:#a8a097;
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin-bottom:16px;
+    }
+    .footer-col a{
+      display:block;
+      color:#766f66;
+      font-size:15px;
+      margin-bottom:10px;
+    }
+    .footer-copy{
+      margin-top:18px;
+      color:#b0a89f;
+      font-size:13px;
+    }
+    .footer-badge{
+      justify-self:end;
+      align-self:end;
+      min-height:40px;
+      padding:0 16px;
+      border-radius:12px;
+      border:1px solid rgba(255,143,88,.32);
+      background:#fff7f2;
+      color:#f06e3d;
+      font-size:13px;
+      font-weight:700;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+    @media (max-width:980px){
+      .hero-grid,
+      .story-grid,
+      .leader-band,
+      .approach-grid,
+      .detail-grid,
+      .footer-area{
+        grid-template-columns:1fr;
+      }
+      .stats-grid{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+      }
+      .footer-badge{justify-self:start}
+    }
+    @media (max-width:900px){
+      .topbar{grid-template-columns:1fr auto}
+      .brand{justify-self:end;order:2}
+      .nav-cta{display:none}
+      .nav{gap:20px;flex-wrap:wrap}
+    }
+    @media (max-width:640px){
+      body{padding:0}
+      .hero-shell{border-radius:0}
+      .topbar{
+        width:calc(100vw - 32px);
+        margin-top:20px;
+        grid-template-columns:1fr;
+        justify-items:center;
+      }
+      .nav{justify-content:center}
+      .brand{justify-self:center}
+      .hero-content,.shell{width:calc(100vw - 28px)}
+      .hero-title{
+        font-size:clamp(48px,15vw,76px);
+        letter-spacing:-1.6px;
+      }
+      .hero-copy,.cta-panel p{font-size:17px}
+      .stats-grid{grid-template-columns:1fr}
+      .hero-form{
+        min-height:auto;
+        border-radius:30px;
+        padding:12px;
+        flex-direction:column;
+      }
+      .hero-form input,.hero-form button{width:100%}
+      .hero-form input{
+        min-height:54px;
+        padding:0 14px;
+      }
+      .hero-form button{min-height:54px}
+      .section-title,.leader-copy h2,.cta-panel h2{
+        font-size:44px;
+        letter-spacing:-1.2px;
+      }
+      .leader-band,.cta-panel{
+        padding-left:22px;
+        padding-right:22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero-shell">
+    <header class="topbar">
+      <nav class="nav">
+        <a href="./index.html">Home</a>
+        <a href="./services.html">Services</a>
+        <a href="./about.html">About</a>
+      </nav>
+
+      <a class="brand" href="./index.html" aria-label="Reva Infotech home">
+        <span class="brand-mark"></span>
+      </a>
+
+      <a class="nav-cta" href="#cta">Book a Project Call</a>
+    </header>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-icon"></span>
+        <span>About Reva Infotech</span>
+      </div>
+
+      <div class="hero-grid">
+        <div>
+          <h1 class="hero-title">A software team built to create <em>useful</em> modern products</h1>
+          <div class="hero-actions">
+            <a class="btn-primary" href="#story">Read our story</a>
+            <a class="btn-secondary" href="#cta">Talk to our team</a>
+          </div>
+        </div>
+
+        <div class="hero-copy">
+          Reva Infotech builds personal applications, custom software systems, and AI-powered digital products for
+          teams that need better tools, stronger design, and practical engineering support from concept to launch.
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-panel">
+          <h3>What drives Reva</h3>
+          <div class="stack">
+            <div class="stack-card">
+              <strong>Human-centered software</strong>
+              <span>Products should feel intuitive for the people using them every day.</span>
+            </div>
+            <div class="stack-card">
+              <strong>Custom systems with purpose</strong>
+              <span>We build around real workflows, not generic templates or bloated tools.</span>
+            </div>
+            <div class="stack-card">
+              <strong>Modern execution</strong>
+              <span>Strategy, design, engineering, AI, and modernization working together in one team.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="story">
+    <div class="shell">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Purpose Meets People</div>
+          <h2 class="section-title">Building software that people enjoy using and businesses rely on to grow</h2>
+        </div>
+        <p class="section-copy">
+          This page adapts the narrative structure of the AppIt About page, but rewrites it for Reva Infotech’s
+          positioning around personal products, custom development, and modern software services.
+        </p>
+      </div>
+
+      <div class="story-grid">
+        <article class="story-card">
+          <p class="lead">
+            Reva Infotech is a modern software company focused on product design, application development, AI-powered
+            experiences, and business systems that solve real operational and user problems.
+          </p>
+          <p>
+            We work with founders, product leaders, and operations teams who need more than generic tools. Some come
+            to us to build new digital products. Others need to modernize outdated systems, improve usability, or add
+            intelligence and automation to their workflows.
+          </p>
+        </article>
+
+        <article class="story-card">
+          <p>
+            Our approach combines product thinking, thoughtful design, and practical engineering so the end result is
+            not just functional software, but something clear, scalable, and actually useful for the people who depend
+            on it.
+          </p>
+          <p>
+            We believe strong software partnerships are built on clarity, honest guidance, technical rigor, and a
+            deep respect for how businesses really operate.
+          </p>
+          <div class="section-actions">
+            <a class="btn-primary" href="./services.html">Our services</a>
+            <a class="btn-secondary" href="#approach">How we work</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Why We’re Different</div>
+          <h2 class="section-title">From concept to execution, Reva is built around clarity, quality, and adaptable delivery</h2>
+        </div>
+        <p class="section-copy">
+          The reference page uses a trust-heavy “we are different” block. Here that same role is filled with proof
+          statements and company-level strengths that fit Reva’s identity.
+        </p>
+      </div>
+
+      <div class="stats-grid">
+        <article class="stat-card">
+          <strong>Product</strong>
+          <span>Strategy and roadmap thinking built into delivery</span>
+        </article>
+        <article class="stat-card">
+          <strong>Design</strong>
+          <span>Usable, polished interfaces for real-world workflows</span>
+        </article>
+        <article class="stat-card">
+          <strong>Web + Mobile</strong>
+          <span>Applications across browsers, phones, and internal systems</span>
+        </article>
+        <article class="stat-card">
+          <strong>AI</strong>
+          <span>Practical assistants, search, automation, and insight features</span>
+        </article>
+        <article class="stat-card">
+          <strong>Modernization</strong>
+          <span>Legacy system upgrades with workflow continuity in mind</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cool">
+    <div class="shell">
+      <div class="leader-band">
+        <div class="leader-card">
+          <div class="leader-portrait" aria-hidden="true"></div>
+          <small>Leadership</small>
+          <h3>Reva Infotech</h3>
+          <p>
+            A team shaped around product quality, modern engineering, and software that serves both users and
+            business outcomes.
+          </p>
+        </div>
+
+        <div class="leader-copy">
+          <h2>The thinking behind the company</h2>
+          <p>
+            Reva Infotech was built on the idea that software projects work better when strategy, UX, engineering,
+            and business context are treated as one connected system rather than separate handoffs.
+          </p>
+          <p>
+            That means asking better questions early, designing around real workflows, keeping technical decisions
+            grounded in long-term product value, and helping clients choose the right path instead of the most
+            complicated one.
+          </p>
+          <p>
+            We want to be the kind of partner that helps companies think clearly, ship confidently, and end up with
+            software that becomes an asset rather than a liability.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="approach">
+    <div class="shell">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Choosing a Direction</div>
+          <h2 class="section-title">How do you want to build?</h2>
+        </div>
+        <p class="section-copy">
+          This mirrors the decision-framework portion of the reference page, adapted to how Reva Infotech helps
+          buyers think through vendor support, internal execution, and full custom platform investment.
+        </p>
+      </div>
+
+      <div class="approach-grid">
+        <article class="approach-card">
+          <div class="approach-art" aria-hidden="true"></div>
+          <small>Approach One</small>
+          <h3>Vendor Partner</h3>
+          <p>
+            Best for teams that already have internal ownership but need outside expertise, faster delivery, or a
+            strong partner to execute specific product and engineering work.
+          </p>
+          <ul class="checklist">
+            <li>Short-term need for specific skills</li>
+            <li>Support for an existing leadership team</li>
+            <li>Execution against a defined roadmap</li>
+          </ul>
+        </article>
+
+        <article class="approach-card">
+          <div class="approach-art" aria-hidden="true"></div>
+          <small>Approach Two</small>
+          <h3>Internal Team Route</h3>
+          <p>
+            Best for organizations that already have strong internal technical capacity and mainly need to optimize
+            speed, team structure, or day-to-day ownership.
+          </p>
+          <ul class="checklist">
+            <li>Lower-cost or faster short-term execution</li>
+            <li>Direct ownership by internal resources</li>
+            <li>Tooling maintained by your own team</li>
+          </ul>
+        </article>
+
+        <article class="approach-card">
+          <div class="approach-art" aria-hidden="true"></div>
+          <small>Approach Three</small>
+          <h3>Custom Platform</h3>
+          <p>
+            Best for companies with proprietary workflows, growth needs, or mission-critical processes that generic
+            platforms can no longer support cleanly.
+          </p>
+          <ul class="checklist">
+            <li>Protect or mirror unique workflows</li>
+            <li>Create a long-term business asset</li>
+            <li>Replace tools your team has outgrown</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">What We Help With</div>
+          <h2 class="section-title">Common reasons teams work with Reva Infotech</h2>
+        </div>
+        <p class="section-copy">
+          Instead of copying the long text blocks on the reference page, this section compresses the same decision
+          support into clearer, scannable cards that fit your site system better.
+        </p>
+      </div>
+
+      <div class="detail-grid">
+        <article class="detail-card">
+          <h3>They need an outside partner</h3>
+          <p>Some teams need a reliable design and engineering partner who can extend capacity or bring a product from concept to launch.</p>
+          <ul>
+            <li>Bandwidth constraints on internal teams</li>
+            <li>Urgent product or workflow needs</li>
+            <li>Specialized design or technical gaps</li>
+          </ul>
+        </article>
+
+        <article class="detail-card">
+          <h3>They need unbiased guidance</h3>
+          <p>Some buyers are not yet sure whether they need a new product, a modernization effort, or a different technical direction entirely.</p>
+          <ul>
+            <li>Architecture and platform decisions</li>
+            <li>Build vs. buy evaluation</li>
+            <li>Scope and roadmap clarification</li>
+          </ul>
+        </article>
+
+        <article class="detail-card">
+          <h3>They’ve outgrown current tools</h3>
+          <p>Others come to Reva because spreadsheets, generic SaaS products, or older internal systems are limiting growth and usability.</p>
+          <ul>
+            <li>Legacy workflow replacement</li>
+            <li>Custom portal or internal system needs</li>
+            <li>AI and automation opportunities</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="cta">
+    <div class="shell">
+      <div class="cta-panel">
+        <h2>Talk to our team about your next software initiative</h2>
+        <p>
+          If you need a product partner, a modernization plan, or a custom platform built around your workflow,
+          Reva Infotech can help you define the right path.
+        </p>
+        <form class="hero-form">
+          <input type="email" placeholder="Enter your work email" />
+          <button type="submit">Book a Project Call</button>
+        </form>
+        <div class="hero-note">No-obligation intro call for product, platform, and modernization needs.</div>
+      </div>
+
+      <div class="footer-area">
+        <div class="footer-brand">
+          <div class="brand-row">
+            <span class="footer-brand-mark">◀</span>
+            <span>Reva Infotech</span>
+          </div>
+          <p>Custom software and AI-powered applications for the modern world.</p>
+          <a class="footer-cta" href="./index.html">Back to Home</a>
+          <div class="footer-copy">©2026 Reva Infotech. All rights reserved.</div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="./index.html">Home</a>
+          <a href="./about.html">About</a>
+          <a href="./services.html">Services</a>
+          <a href="#">Contact</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="./services.html">Custom Software</a>
+          <a href="./services.html">Web Applications</a>
+          <a href="./services.html">Mobile Apps</a>
+          <a href="./services.html">AI Applications</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Approach</h4>
+          <a href="#story">Our Story</a>
+          <a href="#approach">How to Build</a>
+          <a href="#cta">Project Call</a>
+          <a href="#">Case Studies</a>
+        </div>
+
+        <div class="footer-badge">Product + Design + Engineering</div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
