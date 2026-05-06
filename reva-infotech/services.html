@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reva Infotech Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#f7eef6;
+      --bg-2:#f4edf8;
+      --paper:#fcfaf7;
+      --paper-2:#f3f0e7;
+      --paper-3:#eef3f4;
+      --text:#4d3f4b;
+      --muted:#8a7f8b;
+      --line:rgba(164,145,174,.18);
+      --accent:#7e3ff0;
+      --accent-2:#b97cff;
+      --white:#fff;
+      --green:#465244;
+      --green-text:#eef2eb;
+    }
+    *::selection{background:rgba(126,63,240,.14)}
+    html{scroll-behavior:smooth}
+    body{
+      min-height:100vh;
+      font-family:'Inter',sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 18% 88%, rgba(239,190,250,.38), transparent 30%),
+        radial-gradient(circle at 82% 84%, rgba(224,198,255,.45), transparent 26%),
+        radial-gradient(circle at 50% 24%, rgba(255,255,255,.8), transparent 42%),
+        linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 100%);
+      padding:4px;
+    }
+    a{text-decoration:none}
+    .hero-shell{
+      border:1px solid rgba(177,162,196,.24);
+      border-radius:30px;
+      overflow:hidden;
+      position:relative;
+      background:
+        radial-gradient(circle at 10% 92%, rgba(246,186,242,.26), transparent 28%),
+        radial-gradient(circle at 92% 86%, rgba(220,204,255,.36), transparent 24%),
+        linear-gradient(180deg, rgba(255,255,255,.42) 0%, rgba(255,255,255,.18) 100%);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.6);
+    }
+    .hero-shell::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at 50% 52%, rgba(255,255,255,.35), transparent 36%);
+      pointer-events:none;
+    }
+    .topbar{
+      width:min(1120px, calc(100vw - 72px));
+      margin:18px auto 0;
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      gap:20px;
+      position:relative;
+      z-index:2;
+    }
+    .nav{
+      display:flex;
+      gap:36px;
+      align-items:center;
+    }
+    .nav a{
+      color:#6e6573;
+      font-size:15px;
+      font-weight:600;
+    }
+    .nav a span{opacity:.65}
+    .brand{
+      justify-self:center;
+      width:44px;
+      height:44px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .brand-mark{
+      width:34px;
+      height:26px;
+      position:relative;
+      filter:drop-shadow(0 8px 18px rgba(126,63,240,.28));
+    }
+    .brand-mark::before,
+    .brand-mark::after{
+      content:'';
+      position:absolute;
+      top:0;
+      width:16px;
+      height:24px;
+      border-radius:6px 0 0 6px;
+      background:linear-gradient(180deg, #b462ff 0%, #6f2de8 100%);
+      clip-path:polygon(100% 0, 0 50%, 100% 100%);
+    }
+    .brand-mark::before{left:0}
+    .brand-mark::after{
+      right:0;
+      transform:scaleX(-1);
+      border-radius:0 6px 6px 0;
+    }
+    .nav-cta{
+      justify-self:end;
+      min-height:44px;
+      padding:0 22px;
+      border-radius:999px;
+      border:1px solid rgba(118,103,132,.12);
+      background:rgba(255,255,255,.84);
+      box-shadow:0 6px 14px rgba(78,63,93,.06);
+      color:#37313a;
+      font-size:15px;
+      font-weight:700;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .hero-content{
+      width:min(1120px, calc(100vw - 48px));
+      margin:78px auto 0;
+      padding-bottom:92px;
+      position:relative;
+      z-index:2;
+    }
+    .hero-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:12px;
+      min-height:46px;
+      padding:0 18px;
+      border-radius:999px;
+      border:1px solid rgba(182,164,193,.24);
+      background:rgba(255,255,255,.46);
+      box-shadow:0 10px 20px rgba(121,98,145,.08);
+      color:#625967;
+      font-size:15px;
+      font-weight:600;
+    }
+    .hero-badge-icon{
+      width:20px;
+      height:20px;
+      border-radius:4px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.34) 50%, transparent 50%),
+        linear-gradient(180deg, rgba(255,255,255,.34) 50%, transparent 50%),
+        linear-gradient(135deg, #e28dff 0%, #8e4cff 100%);
+      background-size:10px 100%, 100% 10px, 100% 100%;
+    }
+    .hero-copy-grid{
+      margin-top:28px;
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:42px;
+      align-items:end;
+    }
+    .hero-title{
+      font-family:'Instrument Serif',serif;
+      font-size:clamp(60px, 7vw, 96px);
+      line-height:.95;
+      letter-spacing:-2.4px;
+      color:#493d47;
+      max-width:720px;
+    }
+    .hero-title em{
+      font-style:italic;
+      font-weight:400;
+    }
+    .hero-side{
+      padding-bottom:12px;
+    }
+    .hero-side p{
+      color:#8e808e;
+      font-size:20px;
+      line-height:1.55;
+      letter-spacing:-.02em;
+    }
+    .hero-actions{
+      margin-top:28px;
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .btn-primary,
+    .btn-secondary{
+      min-height:54px;
+      padding:0 24px;
+      border-radius:999px;
+      font-size:16px;
+      font-weight:700;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .btn-primary{
+      background:linear-gradient(180deg, #9654ff 0%, #6d2ee8 100%);
+      color:#fff;
+      box-shadow:0 10px 20px rgba(121,68,231,.28);
+    }
+    .btn-secondary{
+      border:1px solid rgba(167,149,186,.2);
+      background:rgba(255,255,255,.64);
+      color:#584d58;
+      box-shadow:0 10px 26px rgba(121,98,145,.1);
+    }
+    .hero-metrics{
+      margin-top:42px;
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0,1fr));
+      gap:18px;
+    }
+    .metric-card{
+      border-radius:24px;
+      border:1px solid rgba(182,164,193,.22);
+      background:rgba(255,255,255,.56);
+      box-shadow:0 14px 24px rgba(121,98,145,.08);
+      padding:24px;
+    }
+    .metric-card strong{
+      display:block;
+      font-family:'Instrument Serif',serif;
+      font-size:34px;
+      line-height:1;
+      color:#4c3f49;
+      letter-spacing:-1.2px;
+    }
+    .metric-card span{
+      display:block;
+      margin-top:10px;
+      color:#8b7f8b;
+      font-size:15px;
+      line-height:1.45;
+    }
+    .section{
+      padding:86px 0;
+    }
+    .section.alt{background:var(--paper-2)}
+    .section.cool{background:var(--paper-3)}
+    .shell{
+      width:min(1120px, calc(100vw - 56px));
+      margin:0 auto;
+    }
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:24px;
+      margin-bottom:38px;
+    }
+    .eyebrow{
+      color:#978d96;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-weight:700;
+    }
+    .section-title{
+      margin-top:12px;
+      font-family:'Instrument Serif',serif;
+      font-size:clamp(44px, 5vw, 72px);
+      line-height:1.02;
+      letter-spacing:-1.7px;
+      color:#554956;
+      max-width:780px;
+    }
+    .section-copy{
+      max-width:420px;
+      color:#8c828d;
+      font-size:18px;
+      line-height:1.52;
+    }
+    .category-pills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-bottom:34px;
+    }
+    .category-pills a{
+      min-height:42px;
+      padding:0 18px;
+      border-radius:999px;
+      background:rgba(255,255,255,.7);
+      border:1px solid rgba(181,170,154,.24);
+      color:#6d6470;
+      font-size:14px;
+      font-weight:700;
+    }
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:24px;
+    }
+    .service-card{
+      border-radius:28px;
+      border:1px solid rgba(182,164,193,.18);
+      background:rgba(255,255,255,.88);
+      box-shadow:0 18px 30px rgba(108,91,124,.08);
+      padding:30px;
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:24px;
+      align-items:start;
+    }
+    .service-card h3{
+      font-family:'Instrument Serif',serif;
+      font-size:34px;
+      line-height:1.02;
+      letter-spacing:-1px;
+      color:#514552;
+      margin-bottom:14px;
+    }
+    .service-card p{
+      color:#847986;
+      font-size:17px;
+      line-height:1.5;
+      max-width:520px;
+    }
+    .service-points{
+      margin-top:22px;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:12px;
+    }
+    .service-points li{
+      list-style:none;
+      display:flex;
+      gap:12px;
+      color:#665c68;
+      font-size:15px;
+      font-weight:600;
+      line-height:1.4;
+    }
+    .service-points li::before{
+      content:'✓';
+      width:24px;
+      height:24px;
+      border-radius:999px;
+      background:#f1ebfa;
+      color:#7e3ff0;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
+      font-size:14px;
+      font-weight:700;
+    }
+    .service-visual{
+      width:132px;
+      min-height:132px;
+      border-radius:24px;
+      background:
+        radial-gradient(circle at 30% 28%, rgba(255,255,255,.8), transparent 34%),
+        linear-gradient(180deg, #b86eff 0%, #7a35ec 100%);
+      box-shadow:0 14px 24px rgba(121,68,231,.24);
+      position:relative;
+      overflow:hidden;
+    }
+    .service-visual::before,
+    .service-visual::after{
+      content:'';
+      position:absolute;
+      border-radius:18px;
+      background:rgba(255,255,255,.22);
+      border:1px solid rgba(255,255,255,.18);
+    }
+    .service-visual::before{
+      inset:22px 22px auto 22px;
+      height:28px;
+    }
+    .service-visual::after{
+      inset:auto 18px 18px 18px;
+      height:54px;
+    }
+    .value-band{
+      border-radius:34px;
+      background:var(--green);
+      color:var(--green-text);
+      padding:76px 72px;
+      display:grid;
+      grid-template-columns:.94fr 1.06fr;
+      gap:62px;
+      align-items:center;
+    }
+    .value-band h2{
+      font-family:'Instrument Serif',serif;
+      font-size:clamp(46px,5vw,72px);
+      line-height:1;
+      letter-spacing:-1.7px;
+    }
+    .value-band p{
+      margin-top:18px;
+      color:#c7cec5;
+      font-size:18px;
+      line-height:1.52;
+      max-width:470px;
+    }
+    .value-list{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:28px 26px;
+    }
+    .value-item{
+      border-top:1px solid rgba(255,255,255,.12);
+      padding-top:20px;
+    }
+    .value-item strong{
+      display:block;
+      color:#f2f5ef;
+      font-size:18px;
+      line-height:1.3;
+      margin-bottom:8px;
+    }
+    .value-item span{
+      color:#bec6bc;
+      font-size:15px;
+      line-height:1.45;
+    }
+    .process-grid{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0, 1fr));
+      gap:18px;
+    }
+    .process-card{
+      border-radius:24px;
+      background:rgba(255,255,255,.78);
+      border:1px solid rgba(181,170,154,.2);
+      box-shadow:0 14px 24px rgba(113,103,92,.06);
+      padding:26px 24px;
+    }
+    .process-number{
+      width:42px;
+      height:42px;
+      border-radius:999px;
+      background:#574f59;
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:16px;
+      font-weight:700;
+      margin-bottom:18px;
+    }
+    .process-card h3{
+      color:#534c46;
+      font-size:21px;
+      line-height:1.25;
+      margin-bottom:10px;
+    }
+    .process-card p{
+      color:#8f877f;
+      font-size:16px;
+      line-height:1.48;
+    }
+    .resources-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:22px;
+    }
+    .resource-card{
+      border-radius:26px;
+      background:rgba(255,255,255,.88);
+      border:1px solid rgba(182,164,193,.18);
+      box-shadow:0 18px 30px rgba(108,91,124,.08);
+      padding:24px;
+    }
+    .resource-art{
+      height:186px;
+      border-radius:22px;
+      background:
+        radial-gradient(circle at 22% 22%, rgba(255,255,255,.8), transparent 30%),
+        linear-gradient(135deg, #f4d7ff 0%, #bdaeff 55%, #8b52f1 100%);
+      margin-bottom:22px;
+      position:relative;
+      overflow:hidden;
+    }
+    .resource-art::before,
+    .resource-art::after{
+      content:'';
+      position:absolute;
+      border-radius:18px;
+      background:rgba(255,255,255,.28);
+      border:1px solid rgba(255,255,255,.2);
+    }
+    .resource-art::before{
+      inset:24px 26px auto 26px;
+      height:38px;
+    }
+    .resource-art::after{
+      inset:auto 26px 24px 26px;
+      height:82px;
+    }
+    .resource-kicker{
+      color:#a2939d;
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-weight:700;
+      margin-bottom:10px;
+    }
+    .resource-card h3{
+      font-family:'Instrument Serif',serif;
+      font-size:30px;
+      line-height:1.05;
+      letter-spacing:-.8px;
+      color:#564a56;
+      margin-bottom:12px;
+    }
+    .resource-card p{
+      color:#8b7f8b;
+      font-size:16px;
+      line-height:1.48;
+      margin-bottom:18px;
+    }
+    .resource-card a{
+      color:#6f34e9;
+      font-size:14px;
+      font-weight:700;
+    }
+    .cta-panel{
+      border-radius:34px;
+      background:#fcfbf8;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.7);
+      padding:86px 24px 92px;
+      text-align:center;
+    }
+    .cta-panel h2{
+      font-family:'Instrument Serif',serif;
+      font-size:clamp(58px,6vw,92px);
+      line-height:1.03;
+      letter-spacing:-2.2px;
+      color:#504944;
+      max-width:840px;
+      margin:0 auto;
+    }
+    .cta-panel p{
+      max-width:600px;
+      margin:22px auto 0;
+      color:#938983;
+      font-size:20px;
+      line-height:1.5;
+    }
+    .hero-form{
+      margin:42px auto 0;
+      width:min(500px, 100%);
+      min-height:76px;
+      padding:8px;
+      border-radius:999px;
+      border:1px solid rgba(167,149,186,.2);
+      background:rgba(255,255,255,.6);
+      box-shadow:0 10px 26px rgba(121,98,145,.1);
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .hero-form input{
+      flex:1;
+      min-width:0;
+      border:none;
+      outline:none;
+      background:transparent;
+      padding:0 22px;
+      color:#615663;
+      font-size:18px;
+      font-family:'Inter',sans-serif;
+    }
+    .hero-form button{
+      border:none;
+      min-height:60px;
+      padding:0 32px;
+      border-radius:999px;
+      background:linear-gradient(180deg, #9654ff 0%, #6d2ee8 100%);
+      color:#fff;
+      font-size:18px;
+      font-weight:700;
+      font-family:'Inter',sans-serif;
+      box-shadow:0 10px 20px rgba(121,68,231,.28);
+      cursor:pointer;
+    }
+    .hero-note{
+      margin-top:18px;
+      color:#918793;
+      font-size:15px;
+      font-weight:500;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+    }
+    .hero-note::before{
+      content:'⌘';
+      font-size:18px;
+      line-height:1;
+      opacity:.8;
+    }
+    .footer-area{
+      margin-top:52px;
+      padding-top:28px;
+      border-top:1px solid rgba(191,182,168,.32);
+      display:grid;
+      grid-template-columns:1.2fr 1fr 1fr 1fr;
+      gap:42px;
+      align-items:start;
+    }
+    .footer-brand{color:#60574f}
+    .footer-brand .brand-row{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:18px;
+      font-weight:700;
+      margin-bottom:8px;
+    }
+    .footer-brand-mark{
+      width:24px;
+      height:24px;
+      border-radius:8px;
+      background:linear-gradient(180deg,#b462ff 0%,#6f2de8 100%);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-size:12px;
+    }
+    .footer-brand p{
+      color:#948b83;
+      font-size:16px;
+      line-height:1.42;
+      margin-bottom:18px;
+    }
+    .footer-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:40px;
+      padding:0 18px;
+      border-radius:999px;
+      border:1px solid rgba(188,178,164,.22);
+      background:#fff;
+      color:#665e57;
+      font-size:15px;
+      font-weight:700;
+      box-shadow:0 6px 12px rgba(113,103,92,.04);
+    }
+    .footer-col h4{
+      color:#a8a097;
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin-bottom:16px;
+    }
+    .footer-col a{
+      display:block;
+      color:#766f66;
+      font-size:15px;
+      margin-bottom:10px;
+    }
+    .footer-copy{
+      margin-top:18px;
+      color:#b0a89f;
+      font-size:13px;
+    }
+    .footer-badge{
+      justify-self:end;
+      align-self:end;
+      min-height:40px;
+      padding:0 16px;
+      border-radius:12px;
+      border:1px solid rgba(255,143,88,.32);
+      background:#fff7f2;
+      color:#f06e3d;
+      font-size:13px;
+      font-weight:700;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+    @media (max-width:980px){
+      .hero-copy-grid,
+      .value-band,
+      .services-grid,
+      .resources-grid,
+      .process-grid,
+      .footer-area{
+        grid-template-columns:1fr;
+      }
+      .hero-metrics{
+        grid-template-columns:repeat(2, minmax(0,1fr));
+      }
+      .service-card{
+        grid-template-columns:1fr;
+      }
+      .value-list{
+        grid-template-columns:1fr;
+      }
+      .footer-badge{
+        justify-self:start;
+      }
+    }
+    @media (max-width:900px){
+      .topbar{grid-template-columns:1fr auto}
+      .brand{justify-self:end;order:2}
+      .nav-cta{display:none}
+      .nav{gap:20px;flex-wrap:wrap}
+    }
+    @media (max-width:640px){
+      body{padding:0}
+      .hero-shell{border-radius:0}
+      .topbar{
+        width:calc(100vw - 32px);
+        margin-top:20px;
+        grid-template-columns:1fr;
+        justify-items:center;
+      }
+      .nav{justify-content:center}
+      .brand{justify-self:center}
+      .hero-content,
+      .shell{
+        width:calc(100vw - 28px);
+      }
+      .hero-title{
+        font-size:clamp(48px, 15vw, 76px);
+        letter-spacing:-1.6px;
+      }
+      .hero-side p,
+      .cta-panel p{
+        font-size:17px;
+      }
+      .hero-metrics{
+        grid-template-columns:1fr;
+      }
+      .hero-form{
+        min-height:auto;
+        border-radius:30px;
+        padding:12px;
+        flex-direction:column;
+      }
+      .hero-form input,
+      .hero-form button{
+        width:100%;
+      }
+      .hero-form input{
+        min-height:54px;
+        padding:0 14px;
+      }
+      .hero-form button{min-height:54px}
+      .section-title,
+      .value-band h2,
+      .cta-panel h2{
+        font-size:44px;
+        letter-spacing:-1.2px;
+      }
+      .value-band,
+      .cta-panel{
+        padding-left:22px;
+        padding-right:22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero-shell">
+    <header class="topbar">
+      <nav class="nav">
+        <a href="./index.html">Home</a>
+        <a href="./services.html">Services</a>
+        <a href="#">Solutions <span>⌄</span></a>
+      </nav>
+
+      <a class="brand" href="./index.html" aria-label="Reva Infotech home">
+        <span class="brand-mark"></span>
+      </a>
+
+      <a class="nav-cta" href="#cta">Book a Project Call</a>
+    </header>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-icon"></span>
+        <span>Comprehensive custom software services</span>
+      </div>
+
+      <div class="hero-copy-grid">
+        <div>
+          <h1 class="hero-title">Services for <em>modern</em> software teams</h1>
+        </div>
+        <div class="hero-side">
+          <p>
+            Reva Infotech designs, builds, modernizes, and scales custom software applications for startups,
+            growth companies, and enterprise teams that need better products and stronger delivery.
+          </p>
+          <div class="hero-actions">
+            <a class="btn-primary" href="#cta">Book a project call</a>
+            <a class="btn-secondary" href="#services">Explore services</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-metrics">
+        <article class="metric-card">
+          <strong>Custom apps</strong>
+          <span>Built around business workflows, user goals, and long-term product growth.</span>
+        </article>
+        <article class="metric-card">
+          <strong>Mobile + web</strong>
+          <span>From customer-facing products to internal operational systems and portals.</span>
+        </article>
+        <article class="metric-card">
+          <strong>AI-ready</strong>
+          <span>Practical AI integrations that create real product value and automation.</span>
+        </article>
+        <article class="metric-card">
+          <strong>End-to-end</strong>
+          <span>Strategy, design, engineering, modernization, and ongoing technical support.</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="services">
+    <div class="shell">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Services</div>
+          <h2 class="section-title">A full service lineup for product building, delivery, and modernization</h2>
+        </div>
+        <p class="section-copy">
+          The structure below follows the same service depth as leading custom software firms, adapted for Reva
+          Infotech’s positioning and the needs described in your homepage content.
+        </p>
+      </div>
+
+      <div class="category-pills">
+        <a href="#custom-software">Custom Software</a>
+        <a href="#mobile-apps">Mobile Apps</a>
+        <a href="#web-apps">Web Apps</a>
+        <a href="#ui-ux">UI/UX Design</a>
+        <a href="#database-api">Database & API</a>
+        <a href="#ai-bi">Artificial Intelligence</a>
+        <a href="#legacy">Legacy Upgrades</a>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card" id="custom-software">
+          <div>
+            <h3>Custom Software Development</h3>
+            <p>
+              A flexible service category for businesses that need more than off-the-shelf software. Reva helps
+              clients solve complex product, platform, and integration challenges with tailored systems.
+            </p>
+            <ul class="service-points">
+              <li>Technology consulting and solution planning</li>
+              <li>Operational software for internal teams</li>
+              <li>Project rescue and product stabilization</li>
+              <li>Requirements review and roadmap refinement</li>
+            </ul>
+          </div>
+          <div class="service-visual" aria-hidden="true"></div>
+        </article>
+
+        <article class="service-card" id="mobile-apps">
+          <div>
+            <h3>Mobile App Development</h3>
+            <p>
+              From concept and UX to engineering and launch, we build mobile apps that support customer engagement,
+              field operations, productivity, and modern digital products.
+            </p>
+            <ul class="service-points">
+              <li>iOS and Android app delivery</li>
+              <li>Cross-platform development workflows</li>
+              <li>Product strategy for mobile experiences</li>
+              <li>App modernization and feature expansion</li>
+            </ul>
+          </div>
+          <div class="service-visual" aria-hidden="true"></div>
+        </article>
+
+        <article class="service-card" id="web-apps">
+          <div>
+            <h3>Web App Development</h3>
+            <p>
+              Reva develops secure, scalable web applications for customer-facing experiences and internal business
+              systems, from responsive platforms to enterprise-grade portals.
+            </p>
+            <ul class="service-points">
+              <li>Static and dynamic web applications</li>
+              <li>Customer portals and admin systems</li>
+              <li>Commerce and service-based web products</li>
+              <li>CMS-driven and data-heavy applications</li>
+            </ul>
+          </div>
+          <div class="service-visual" aria-hidden="true"></div>
+        </article>
+
+        <article class="service-card" id="ui-ux">
+          <div>
+            <h3>UI/UX Design</h3>
+            <p>
+              Strong software starts with thoughtful design. We create user experiences that support real workflows
+              while aligning with business goals, product clarity, and long-term usability.
+            </p>
+            <ul class="service-points">
+              <li>Product design and UX strategy</li>
+              <li>Wireframes and clickable prototypes</li>
+              <li>Design systems and polished interfaces</li>
+              <li>User flow refinement and usability improvements</li>
+            </ul>
+          </div>
+          <div class="service-visual" aria-hidden="true"></div>
+        </article>
+
+        <article class="service-card" id="database-api">
+          <div>
+            <h3>Database and API Development</h3>
+            <p>
+              Data architecture and integrations are where product flexibility becomes real. We build backend systems,
+              APIs, and database layers that keep your platform reliable and connected.
+            </p>
+            <ul class="service-points">
+              <li>Backend architecture and API development</li>
+              <li>Database design and performance planning</li>
+              <li>Third-party service integrations</li>
+              <li>Cloud and serverless implementation patterns</li>
+            </ul>
+          </div>
+          <div class="service-visual" aria-hidden="true"></div>
+        </article>
+
+        <article class="service-card" id="ai-bi">
+          <div>
+            <h3>Artificial Intelligence and Automation</h3>
+            <p>
+              Reva helps businesses bring AI into products and operations in practical ways, from assistants and
+              summarization to analytics, search, and workflow automation.
+            </p>
+            <ul class="service-points">
+              <li>Large language model integrations</li>
+              <li>AI copilots and intelligent assistants</li>
+              <li>Reporting, analytics, and data insight tools</li>
+              <li>Business process automation systems</li>
+            </ul>
+          </div>
+          <div class="service-visual" aria-hidden="true"></div>
+        </article>
+
+        <article class="service-card" id="legacy">
+          <div>
+            <h3>Legacy System Upgrades</h3>
+            <p>
+              Replacing outdated software requires careful workflow capture, stakeholder alignment, and technical
+              clarity. We help teams modernize without losing the parts the business still depends on.
+            </p>
+            <ul class="service-points">
+              <li>Total or partial system rewrites</li>
+              <li>Migration away from spreadsheet-heavy workflows</li>
+              <li>Ongoing enhancement and support plans</li>
+              <li>Transition planning for high-dependency systems</li>
+            </ul>
+          </div>
+          <div class="service-visual" aria-hidden="true"></div>
+        </article>
+
+        <article class="service-card">
+          <div>
+            <h3>Dedicated Product and Engineering Support</h3>
+            <p>
+              When teams need extra velocity or specialized expertise, Reva can extend your delivery capacity with
+              product-minded design and engineering support tailored to the engagement.
+            </p>
+            <ul class="service-points">
+              <li>Embedded engineering collaboration</li>
+              <li>Feature delivery and backlog execution</li>
+              <li>Platform review and code quality support</li>
+              <li>Flexible engagement models for scaling teams</li>
+            </ul>
+          </div>
+          <div class="service-visual" aria-hidden="true"></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="value-band">
+        <div>
+          <h2>Delivering strong value through every build</h2>
+          <p>
+            This section adapts the “why choose us” layer from the reference into Reva’s tone, while keeping the
+            same high-trust message around speed, creativity, quality, and decision support.
+          </p>
+        </div>
+
+        <div class="value-list">
+          <div class="value-item">
+            <strong>Faster speed to delivery</strong>
+            <span>Structured discovery, clear planning, and focused execution that help teams move to launch with less waste.</span>
+          </div>
+          <div class="value-item">
+            <strong>Creative and technical depth</strong>
+            <span>Design and engineering work together to solve hard workflow, product, and platform problems.</span>
+          </div>
+          <div class="value-item">
+            <strong>Software that becomes an asset</strong>
+            <span>Maintainable code, stronger UX, and scalable architecture that support long-term product value.</span>
+          </div>
+          <div class="value-item">
+            <strong>Better guidance at each decision point</strong>
+            <span>Unbiased advice on scope, architecture, modernization, and where AI fits into your roadmap.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cool">
+    <div class="shell">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Process</div>
+          <h2 class="section-title">How Reva typically works with clients</h2>
+        </div>
+        <p class="section-copy">
+          A simplified service flow designed to fit the structure of the existing Reva homepage while making the
+          delivery model easy to understand.
+        </p>
+      </div>
+
+      <div class="process-grid">
+        <article class="process-card">
+          <div class="process-number">01</div>
+          <h3>Discovery</h3>
+          <p>Clarify business goals, users, workflows, constraints, risks, and the right initial product scope.</p>
+        </article>
+        <article class="process-card">
+          <div class="process-number">02</div>
+          <h3>Design</h3>
+          <p>Shape the product experience with UX flows, wireframes, interface systems, and clickable prototypes.</p>
+        </article>
+        <article class="process-card">
+          <div class="process-number">03</div>
+          <h3>Build</h3>
+          <p>Develop the application, integrations, data layer, and platform foundations with iterative delivery.</p>
+        </article>
+        <article class="process-card">
+          <div class="process-number">04</div>
+          <h3>Scale</h3>
+          <p>Improve adoption, extend features, support modernization, and keep the software aligned with growth.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="shell">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Resources</div>
+          <h2 class="section-title">Content that helps clients make smarter software decisions</h2>
+        </div>
+        <p class="section-copy">
+          Inspired by the resource section on the reference page, adapted into reusable content blocks for Reva
+          Infotech’s future library.
+        </p>
+      </div>
+
+      <div class="resources-grid">
+        <article class="resource-card">
+          <div class="resource-art" aria-hidden="true"></div>
+          <div class="resource-kicker">Guide</div>
+          <h3>When custom software is the right move</h3>
+          <p>Use this type of content to help buyers understand when a custom application creates more value than another generic subscription tool.</p>
+          <a href="#">Read more</a>
+        </article>
+        <article class="resource-card">
+          <div class="resource-art" aria-hidden="true"></div>
+          <div class="resource-kicker">Checklist</div>
+          <h3>How to evaluate a software development partner</h3>
+          <p>A strong vendor selection guide can support Reva’s sales process while reinforcing product, design, and engineering credibility.</p>
+          <a href="#">Read more</a>
+        </article>
+        <article class="resource-card">
+          <div class="resource-art" aria-hidden="true"></div>
+          <div class="resource-kicker">Insights</div>
+          <h3>Modernization, AI, and product strategy articles</h3>
+          <p>This card can later point to blog posts, case studies, or downloadable resources tied to Reva’s core service areas.</p>
+          <a href="#">Read more</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="cta">
+    <div class="shell">
+      <div class="cta-panel">
+        <h2>Talk to our team to scope your next project</h2>
+        <p>
+          Whether you need a custom app, a system rewrite, a mobile product, or an AI-enabled workflow, Reva
+          Infotech can help shape the right approach.
+        </p>
+        <form class="hero-form">
+          <input type="email" placeholder="Enter your work email" />
+          <button type="submit">Book a Project Call</button>
+        </form>
+        <div class="hero-note">No-obligation intro call for product, platform, and modernization needs.</div>
+      </div>
+
+      <div class="footer-area">
+        <div class="footer-brand">
+          <div class="brand-row">
+            <span class="footer-brand-mark">◀</span>
+            <span>Reva Infotech</span>
+          </div>
+          <p>Custom software and AI-powered applications for the modern world.</p>
+          <a class="footer-cta" href="./index.html">Back to Home</a>
+          <div class="footer-copy">©2026 Reva Infotech. All rights reserved.</div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="./index.html">Home</a>
+          <a href="./services.html">Services</a>
+          <a href="#">Work</a>
+          <a href="#">Contact</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="#custom-software">Custom Software</a>
+          <a href="#mobile-apps">Mobile Apps</a>
+          <a href="#web-apps">Web Apps</a>
+          <a href="#ai-bi">Artificial Intelligence</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Solutions</h4>
+          <a href="#legacy">Legacy Modernization</a>
+          <a href="#database-api">Database & API</a>
+          <a href="#ui-ux">UI/UX Design</a>
+          <a href="#">Case Studies</a>
+        </div>
+
+        <div class="footer-badge">Strategy + Design + Engineering</div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
