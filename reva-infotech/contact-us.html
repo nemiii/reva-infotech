@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Reva Infotech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#f7eef6;
+      --bg-2:#f4edf8;
+      --paper:#fcfaf7;
+      --paper-2:#f3f0e7;
+      --paper-3:#eef3f4;
+      --text:#4d3f4b;
+      --muted:#8a7f8b;
+      --accent:#7e3ff0;
+      --white:#fff;
+      --green:#465244;
+      --green-text:#eef2eb;
+    }
+    html{scroll-behavior:smooth}
+    body{
+      min-height:100vh;
+      font-family:'Inter',sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 18% 88%, rgba(239,190,250,.38), transparent 30%),
+        radial-gradient(circle at 82% 84%, rgba(224,198,255,.45), transparent 26%),
+        radial-gradient(circle at 50% 24%, rgba(255,255,255,.8), transparent 42%),
+        linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 100%);
+      padding:4px;
+    }
+    a{text-decoration:none}
+    .hero-shell{
+      border:1px solid rgba(177,162,196,.24);
+      border-radius:30px;
+      overflow:hidden;
+      position:relative;
+      background:
+        radial-gradient(circle at 10% 92%, rgba(246,186,242,.26), transparent 28%),
+        radial-gradient(circle at 92% 86%, rgba(220,204,255,.36), transparent 24%),
+        linear-gradient(180deg, rgba(255,255,255,.42) 0%, rgba(255,255,255,.18) 100%);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.6);
+    }
+    .hero-shell::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at 50% 52%, rgba(255,255,255,.35), transparent 36%);
+      pointer-events:none;
+    }
+    .topbar{
+      width:min(1120px, calc(100vw - 72px));
+      margin:18px auto 0;
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      gap:20px;
+      position:relative;
+      z-index:2;
+    }
+    .nav{
+      display:flex;
+      gap:36px;
+      align-items:center;
+    }
+    .nav a{
+      color:#6e6573;
+      font-size:15px;
+      font-weight:600;
+    }
+    .brand{
+      justify-self:center;
+      width:44px;
+      height:44px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .brand-mark{
+      width:34px;
+      height:26px;
+      position:relative;
+      filter:drop-shadow(0 8px 18px rgba(126,63,240,.28));
+    }
+    .brand-mark::before,
+    .brand-mark::after{
+      content:'';
+      position:absolute;
+      top:0;
+      width:16px;
+      height:24px;
+      border-radius:6px 0 0 6px;
+      background:linear-gradient(180deg, #b462ff 0%, #6f2de8 100%);
+      clip-path:polygon(100% 0, 0 50%, 100% 100%);
+    }
+    .brand-mark::before{left:0}
+    .brand-mark::after{
+      right:0;
+      transform:scaleX(-1);
+      border-radius:0 6px 6px 0;
+    }
+    .nav-cta{
+      justify-self:end;
+      min-height:44px;
+      padding:0 22px;
+      border-radius:999px;
+      border:1px solid rgba(118,103,132,.12);
+      background:rgba(255,255,255,.84);
+      box-shadow:0 6px 14px rgba(78,63,93,.06);
+      color:#37313a;
+      font-size:15px;
+      font-weight:700;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .hero-content{
+      width:min(1120px, calc(100vw - 48px));
+      margin:78px auto 0;
+      padding-bottom:92px;
+      position:relative;
+      z-index:2;
+    }
+    .hero-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:12px;
+      min-height:46px;
+      padding:0 18px;
+      border-radius:999px;
+      border:1px solid rgba(182,164,193,.24);
+      background:rgba(255,255,255,.46);
+      box-shadow:0 10px 20px rgba(121,98,145,.08);
+      color:#625967;
+      font-size:15px;
+      font-weight:600;
+    }
+    .hero-badge-icon{
+      width:20px;
+      height:20px;
+      border-radius:4px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.34) 50%, transparent 50%),
+        linear-gradient(180deg, rgba(255,255,255,.34) 50%, transparent 50%),
+        linear-gradient(135deg, #e28dff 0%, #8e4cff 100%);
+      background-size:10px 100%, 100% 10px, 100% 100%;
+    }
+    .hero-grid{
+      margin-top:28px;
+      display:grid;
+      grid-template-columns:1.02fr .98fr;
+      gap:34px;
+      align-items:start;
+    }
+    .hero-title{
+      font-family:'Instrument Serif',serif;
+      font-size:clamp(60px,7vw,94px);
+      line-height:.95;
+      letter-spacing:-2.2px;
+      color:#493d47;
+      max-width:700px;
+    }
+    .hero-copy{
+      margin-top:22px;
+      max-width:640px;
+      color:#8e808e;
+      font-size:20px;
+      line-height:1.56;
+    }
+    .contact-stack{
+      display:grid;
+      gap:16px;
+    }
+    .contact-card{
+      border-radius:26px;
+      border:1px solid rgba(182,164,193,.22);
+      background:rgba(255,255,255,.72);
+      box-shadow:0 16px 28px rgba(108,91,124,.08);
+      padding:24px;
+    }
+    .contact-card small{
+      display:block;
+      color:#9a8f9b;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-weight:700;
+      margin-bottom:10px;
+    }
+    .contact-card strong{
+      display:block;
+      color:#544956;
+      font-size:25px;
+      line-height:1.2;
+      letter-spacing:-.6px;
+      margin-bottom:8px;
+    }
+    .contact-card p,
+    .contact-card a{
+      color:#857987;
+      font-size:16px;
+      line-height:1.48;
+    }
+    .contact-card a{
+      color:#6f34e9;
+      font-weight:700;
+    }
+    .section{padding:86px 0}
+    .section.alt{background:var(--paper-2)}
+    .section.cool{background:var(--paper-3)}
+    .shell{width:min(1120px, calc(100vw - 56px));margin:0 auto}
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:24px;
+      margin-bottom:38px;
+    }
+    .eyebrow{
+      color:#978d96;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-weight:700;
+    }
+    .section-title{
+      margin-top:12px;
+      font-family:'Instrument Serif',serif;
+      font-size:clamp(44px,5vw,72px);
+      line-height:1.02;
+      letter-spacing:-1.7px;
+      color:#554956;
+      max-width:780px;
+    }
+    .section-copy{
+      max-width:420px;
+      color:#8c828d;
+      font-size:18px;
+      line-height:1.52;
+    }
+    .form-grid{
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      gap:24px;
+      align-items:start;
+    }
+    .form-panel,
+    .support-panel{
+      border-radius:30px;
+      border:1px solid rgba(182,164,193,.18);
+      background:rgba(255,255,255,.86);
+      box-shadow:0 18px 30px rgba(108,91,124,.08);
+      padding:30px;
+    }
+    .form-panel h3,
+    .support-panel h3{
+      font-family:'Instrument Serif',serif;
+      font-size:36px;
+      line-height:1.04;
+      letter-spacing:-1px;
+      color:#524654;
+      margin-bottom:14px;
+    }
+    .form-panel p,
+    .support-panel p{
+      color:#8a7f8b;
+      font-size:16px;
+      line-height:1.52;
+    }
+    .contact-form{
+      margin-top:24px;
+      display:grid;
+      gap:16px;
+    }
+    .field-row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+    .field{
+      display:grid;
+      gap:8px;
+    }
+    .field label{
+      color:#7d7280;
+      font-size:14px;
+      font-weight:600;
+    }
+    .field input,
+    .field select,
+    .field textarea{
+      width:100%;
+      border:none;
+      outline:none;
+      border-radius:18px;
+      background:#f8f4fb;
+      border:1px solid rgba(182,164,193,.18);
+      padding:16px 18px;
+      color:#564b58;
+      font-size:15px;
+      font-family:'Inter',sans-serif;
+    }
+    .field textarea{
+      min-height:148px;
+      resize:vertical;
+    }
+    .submit-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+      margin-top:6px;
+    }
+    .btn-primary{
+      min-height:54px;
+      padding:0 24px;
+      border:none;
+      border-radius:999px;
+      background:linear-gradient(180deg, #9654ff 0%, #6d2ee8 100%);
+      color:#fff;
+      font-size:16px;
+      font-weight:700;
+      box-shadow:0 10px 20px rgba(121,68,231,.28);
+      cursor:pointer;
+    }
+    .submit-note{
+      color:#948995;
+      font-size:14px;
+      line-height:1.5;
+      max-width:360px;
+    }
+    .support-list{
+      margin-top:22px;
+      display:grid;
+      gap:16px;
+    }
+    .support-item{
+      border-radius:20px;
+      background:#faf7fc;
+      border:1px solid rgba(182,164,193,.16);
+      padding:18px;
+    }
+    .support-item strong{
+      display:block;
+      color:#554b58;
+      font-size:17px;
+      margin-bottom:8px;
+    }
+    .awards-band{
+      border-radius:34px;
+      background:var(--green);
+      color:var(--green-text);
+      padding:72px;
+    }
+    .awards-head{
+      display:flex;
+      justify-content:space-between;
+      gap:24px;
+      align-items:end;
+      margin-bottom:30px;
+    }
+    .awards-band h2{
+      font-family:'Instrument Serif',serif;
+      font-size:clamp(44px,5vw,72px);
+      line-height:1;
+      letter-spacing:-1.7px;
+      color:#f2f5ef;
+      max-width:640px;
+    }
+    .awards-band p{
+      color:#c7cec5;
+      font-size:18px;
+      line-height:1.5;
+      max-width:420px;
+    }
+    .award-grid{
+      display:grid;
+      grid-template-columns:repeat(6, minmax(0, 1fr));
+      gap:16px;
+    }
+    .award-pill{
+      min-height:108px;
+      border-radius:22px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:18px;
+      color:#e7ece5;
+      font-size:14px;
+      line-height:1.35;
+      font-weight:700;
+    }
+    .quick-links{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0, 1fr));
+      gap:18px;
+    }
+    .quick-card{
+      border-radius:24px;
+      background:rgba(255,255,255,.86);
+      border:1px solid rgba(182,164,193,.18);
+      box-shadow:0 18px 30px rgba(108,91,124,.08);
+      padding:24px;
+    }
+    .quick-card h3{
+      font-family:'Instrument Serif',serif;
+      font-size:30px;
+      line-height:1.04;
+      color:#564a56;
+      margin-bottom:10px;
+    }
+    .quick-card p{
+      color:#8b7f8b;
+      font-size:15px;
+      line-height:1.5;
+      margin-bottom:16px;
+    }
+    .quick-card a{
+      color:#6f34e9;
+      font-size:14px;
+      font-weight:700;
+    }
+    .footer-area{
+      margin-top:52px;
+      padding-top:28px;
+      border-top:1px solid rgba(191,182,168,.32);
+      display:grid;
+      grid-template-columns:1.2fr 1fr 1fr 1fr;
+      gap:42px;
+      align-items:start;
+    }
+    .footer-brand{color:#60574f}
+    .footer-brand .brand-row{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:18px;
+      font-weight:700;
+      margin-bottom:8px;
+    }
+    .footer-brand-mark{
+      width:24px;
+      height:24px;
+      border-radius:8px;
+      background:linear-gradient(180deg,#b462ff 0%,#6f2de8 100%);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-size:12px;
+    }
+    .footer-brand p{
+      color:#948b83;
+      font-size:16px;
+      line-height:1.42;
+      margin-bottom:18px;
+    }
+    .footer-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:40px;
+      padding:0 18px;
+      border-radius:999px;
+      border:1px solid rgba(188,178,164,.22);
+      background:#fff;
+      color:#665e57;
+      font-size:15px;
+      font-weight:700;
+      box-shadow:0 6px 12px rgba(113,103,92,.04);
+    }
+    .footer-col h4{
+      color:#a8a097;
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin-bottom:16px;
+    }
+    .footer-col a{
+      display:block;
+      color:#766f66;
+      font-size:15px;
+      margin-bottom:10px;
+    }
+    .footer-copy{
+      margin-top:18px;
+      color:#b0a89f;
+      font-size:13px;
+    }
+    .footer-badge{
+      justify-self:end;
+      align-self:end;
+      min-height:40px;
+      padding:0 16px;
+      border-radius:12px;
+      border:1px solid rgba(255,143,88,.32);
+      background:#fff7f2;
+      color:#f06e3d;
+      font-size:13px;
+      font-weight:700;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+    @media (max-width:980px){
+      .hero-grid,
+      .form-grid,
+      .quick-links,
+      .footer-area{
+        grid-template-columns:1fr;
+      }
+      .award-grid{
+        grid-template-columns:repeat(3, minmax(0,1fr));
+      }
+      .awards-head{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .footer-badge{justify-self:start}
+    }
+    @media (max-width:900px){
+      .topbar{grid-template-columns:1fr auto}
+      .brand{justify-self:end;order:2}
+      .nav-cta{display:none}
+      .nav{gap:20px;flex-wrap:wrap}
+    }
+    @media (max-width:640px){
+      body{padding:0}
+      .hero-shell{border-radius:0}
+      .topbar{
+        width:calc(100vw - 32px);
+        margin-top:20px;
+        grid-template-columns:1fr;
+        justify-items:center;
+      }
+      .nav{justify-content:center}
+      .brand{justify-self:center}
+      .hero-content,.shell{width:calc(100vw - 28px)}
+      .hero-title{
+        font-size:clamp(48px,15vw,74px);
+        letter-spacing:-1.5px;
+      }
+      .hero-copy,.section-copy{font-size:17px}
+      .field-row,
+      .award-grid{
+        grid-template-columns:1fr;
+      }
+      .awards-band{
+        padding:56px 22px;
+      }
+      .section-title,.awards-band h2{
+        font-size:44px;
+        letter-spacing:-1.2px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero-shell">
+    <header class="topbar">
+      <nav class="nav">
+        <a href="./index.html">Home</a>
+        <a href="./services.html">Services</a>
+        <a href="./about.html">About us</a>
+        <a href="./contact-us.html">Contact us</a>
+      </nav>
+
+      <a class="brand" href="./index.html" aria-label="Reva Infotech home">
+        <span class="brand-mark"></span>
+      </a>
+
+      <a class="nav-cta" href="#message">Send a Message</a>
+    </header>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-icon"></span>
+        <span>Contact Reva Infotech</span>
+      </div>
+
+      <div class="hero-grid">
+        <div>
+          <h1 class="hero-title">Let’s talk about your next software project</h1>
+          <p class="hero-copy">
+            Building custom software takes planning, clarity, and the right partner. Reva Infotech helps teams
+            explore product ideas, modernization needs, AI opportunities, and custom application builds with a
+            straightforward process.
+          </p>
+        </div>
+
+        <div class="contact-stack">
+          <article class="contact-card">
+            <small>Project Call</small>
+            <strong>Book a discovery conversation</strong>
+            <p>Talk through your app idea, platform needs, workflow challenges, or modernization goals with our team.</p>
+            <p style="margin-top:10px"><a href="#message">Start the conversation</a></p>
+          </article>
+
+          <article class="contact-card">
+            <small>Email</small>
+            <strong>hello@revainfotech.com</strong>
+            <p>Use email for project inquiries, partnership requests, or early discussions around custom software work.</p>
+          </article>
+
+          <article class="contact-card">
+            <small>Typical Topics</small>
+            <strong>Custom apps, web platforms, AI, modernization</strong>
+            <p>We support product strategy, design, development, integrations, and long-term software improvements.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="message">
+    <div class="shell">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Send Us A Message</div>
+          <h2 class="section-title">Tell us what you’re building or trying to improve</h2>
+        </div>
+        <p class="section-copy">
+          This section follows the direct-contact purpose of the reference page, but uses a more polished Reva-style
+          form panel and support layout.
+        </p>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-panel">
+          <h3>Project inquiry form</h3>
+          <p>Share a bit about your business, the software problem you’re solving, and what kind of support you need.</p>
+
+          <form class="contact-form">
+            <div class="field-row">
+              <div class="field">
+                <label for="name">Full name</label>
+                <input id="name" type="text" placeholder="Your name" />
+              </div>
+              <div class="field">
+                <label for="email">Work email</label>
+                <input id="email" type="email" placeholder="name@company.com" />
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="company">Company</label>
+                <input id="company" type="text" placeholder="Company name" />
+              </div>
+              <div class="field">
+                <label for="service">Service interest</label>
+                <select id="service">
+                  <option>Custom Software Development</option>
+                  <option>Web Application Development</option>
+                  <option>Mobile App Development</option>
+                  <option>UI/UX Design</option>
+                  <option>AI Applications</option>
+                  <option>Legacy Modernization</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="message-text">Project details</label>
+              <textarea id="message-text" placeholder="Tell us about the product, workflow, challenge, timeline, or business goal."></textarea>
+            </div>
+
+            <div class="submit-row">
+              <button class="btn-primary" type="submit">Send message</button>
+              <div class="submit-note">Use this as a visual template for now. Form handling can be connected later to your actual inbox or CRM.</div>
+            </div>
+          </form>
+        </div>
+
+        <aside class="support-panel">
+          <h3>How we usually help</h3>
+          <p>Clients typically reach out when they need a better product path, stronger execution, or a clearer technical direction.</p>
+
+          <div class="support-list">
+            <div class="support-item">
+              <strong>New product planning</strong>
+              <p>Turn a business concept into a practical roadmap, UX direction, and implementation plan.</p>
+            </div>
+            <div class="support-item">
+              <strong>Legacy system replacement</strong>
+              <p>Modernize internal tools, remove manual friction, and preserve the workflows your teams depend on.</p>
+            </div>
+            <div class="support-item">
+              <strong>AI and automation opportunities</strong>
+              <p>Identify where assistants, search, summarization, or workflow automation can create real value.</p>
+            </div>
+            <div class="support-item">
+              <strong>Delivery support</strong>
+              <p>Bring in product, design, and engineering help to move faster without compromising quality.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="awards-band">
+        <div class="awards-head">
+          <h2>A trusted foundation for high-stakes software work</h2>
+          <p>
+            The reference page uses an awards strip here. This Reva version keeps the same trust-building role using
+            brand-style proof placeholders that can later be replaced with real awards, certifications, or clients.
+          </p>
+        </div>
+
+        <div class="award-grid">
+          <div class="award-pill">Award-Winning Product Thinking</div>
+          <div class="award-pill">Modern App Development</div>
+          <div class="award-pill">Trusted Delivery Partner</div>
+          <div class="award-pill">Design-Led Engineering</div>
+          <div class="award-pill">AI-Ready Product Team</div>
+          <div class="award-pill">Workflow Modernization Expertise</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cool">
+    <div class="shell">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Expert Services</div>
+          <h2 class="section-title">Where Reva Infotech can support you next</h2>
+        </div>
+        <p class="section-copy">
+          This adapts the “expert services & available support” pattern from the reference into card-style links that
+          match your site system.
+        </p>
+      </div>
+
+      <div class="quick-links">
+        <article class="quick-card">
+          <h3>Custom Software</h3>
+          <p>Tailored software systems built around your business workflow and product goals.</p>
+          <a href="./services.html">Explore service</a>
+        </article>
+        <article class="quick-card">
+          <h3>Web & Mobile Apps</h3>
+          <p>Customer-facing products, internal tools, portals, and operational applications.</p>
+          <a href="./services.html">See capabilities</a>
+        </article>
+        <article class="quick-card">
+          <h3>AI Applications</h3>
+          <p>Practical assistants, search, automation, and AI-powered workflow enhancements.</p>
+          <a href="./services.html">View AI services</a>
+        </article>
+        <article class="quick-card">
+          <h3>Modernization</h3>
+          <p>Upgrade outdated systems and replace spreadsheet-driven operations with stronger software.</p>
+          <a href="./services.html">Learn more</a>
+        </article>
+      </div>
+
+      <div class="footer-area">
+        <div class="footer-brand">
+          <div class="brand-row">
+            <span class="footer-brand-mark">◀</span>
+            <span>Reva Infotech</span>
+          </div>
+          <p>Custom software and AI-powered applications for the modern world.</p>
+          <a class="footer-cta" href="./index.html">Back to Home</a>
+          <div class="footer-copy">©2026 Reva Infotech. All rights reserved.</div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="./index.html">Home</a>
+          <a href="./about.html">About us</a>
+          <a href="./services.html">Services</a>
+          <a href="./contact-us.html">Contact us</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="./services.html">Custom Software</a>
+          <a href="./services.html">Web Applications</a>
+          <a href="./services.html">Mobile Apps</a>
+          <a href="./services.html">AI Applications</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="#message">Send a message</a>
+          <a href="mailto:hello@revainfotech.com">Email us</a>
+          <a href="./about.html">About Reva</a>
+          <a href="./services.html">Project scope</a>
+        </div>
+
+        <div class="footer-badge">Project Discovery Available</div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
