@@ -1,0 +1,1807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reva Infotech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#f7eef6;
+      --bg-2:#f4edf8;
+      --text:#4d3f4b;
+      --muted:#8a7f8b;
+      --line:rgba(164,145,174,.18);
+      --accent:#7e3ff0;
+      --accent-2:#b97cff;
+      --white:#fff;
+    }
+    html{scroll-behavior:smooth}
+    body{
+      min-height:100vh;
+      font-family:'Inter',sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 18% 88%, rgba(239,190,250,.38), transparent 30%),
+        radial-gradient(circle at 82% 84%, rgba(224,198,255,.45), transparent 26%),
+        radial-gradient(circle at 50% 24%, rgba(255,255,255,.8), transparent 42%),
+        linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 100%);
+      padding:4px;
+    }
+    .hero-shell{
+      min-height:calc(100vh - 8px);
+      border:1px solid rgba(177,162,196,.24);
+      border-radius:30px;
+      overflow:hidden;
+      position:relative;
+      background:
+        radial-gradient(circle at 10% 92%, rgba(246,186,242,.26), transparent 28%),
+        radial-gradient(circle at 92% 86%, rgba(220,204,255,.36), transparent 24%),
+        linear-gradient(180deg, rgba(255,255,255,.42) 0%, rgba(255,255,255,.18) 100%);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.6);
+    }
+    .hero-shell::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 50% 52%, rgba(255,255,255,.35), transparent 36%);
+      pointer-events:none;
+    }
+    .topbar{
+      width:min(1120px, calc(100vw - 72px));
+      margin:18px auto 0;
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      gap:20px;
+      position:relative;
+      z-index:2;
+    }
+    .nav{
+      display:flex;
+      gap:36px;
+      align-items:center;
+    }
+    .nav a{
+      color:#6e6573;
+      text-decoration:none;
+      font-size:15px;
+      font-weight:600;
+    }
+    .nav a span{opacity:.65}
+    .brand{
+      justify-self:center;
+      width:44px;
+      height:44px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .brand-mark{
+      width:34px;
+      height:26px;
+      position:relative;
+      filter:drop-shadow(0 8px 18px rgba(126,63,240,.28));
+    }
+    .brand-mark::before,
+    .brand-mark::after{
+      content:'';
+      position:absolute;
+      top:0;
+      width:16px;
+      height:24px;
+      border-radius:6px 0 0 6px;
+      background:linear-gradient(180deg, #b462ff 0%, #6f2de8 100%);
+      clip-path:polygon(100% 0, 0 50%, 100% 100%);
+    }
+    .brand-mark::before{left:0}
+    .brand-mark::after{
+      right:0;
+      transform:scaleX(-1);
+      border-radius:0 6px 6px 0;
+    }
+    .nav-cta{
+      justify-self:end;
+      min-height:44px;
+      padding:0 22px;
+      border-radius:999px;
+      border:1px solid rgba(118,103,132,.12);
+      background:rgba(255,255,255,.84);
+      box-shadow:0 6px 14px rgba(78,63,93,.06);
+      color:#37313a;
+      text-decoration:none;
+      font-size:15px;
+      font-weight:700;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .hero-content{
+      width:min(980px, calc(100vw - 48px));
+      margin:84px auto 0;
+      position:relative;
+      z-index:2;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+    }
+    .hero-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:12px;
+      min-height:46px;
+      padding:0 18px;
+      border-radius:999px;
+      border:1px solid rgba(182,164,193,.24);
+      background:rgba(255,255,255,.46);
+      box-shadow:0 10px 20px rgba(121,98,145,.08);
+      color:#625967;
+      font-size:15px;
+      font-weight:600;
+    }
+    .hero-badge-icon{
+      width:20px;
+      height:20px;
+      border-radius:4px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.34) 50%, transparent 50%),
+        linear-gradient(180deg, rgba(255,255,255,.34) 50%, transparent 50%),
+        linear-gradient(135deg, #e28dff 0%, #8e4cff 100%);
+      background-size:10px 100%, 100% 10px, 100% 100%;
+    }
+    .hero-badge-arrow{
+      font-size:24px;
+      line-height:1;
+      color:#b0a2b4;
+      margin-left:2px;
+    }
+    .hero-title{
+      margin-top:26px;
+      font-family:'Instrument Serif',serif;
+      font-size:clamp(64px, 8vw, 102px);
+      line-height:.95;
+      letter-spacing:-2.6px;
+      color:#493d47;
+      max-width:720px;
+    }
+    .hero-title em{
+      font-style:italic;
+      font-weight:400;
+    }
+    .hero-copy{
+      margin-top:26px;
+      max-width:760px;
+      color:#8e808e;
+      font-size:21px;
+      line-height:1.52;
+      letter-spacing:-.02em;
+    }
+    .hero-form{
+      margin-top:44px;
+      width:min(500px, 100%);
+      min-height:76px;
+      padding:8px;
+      border-radius:999px;
+      border:1px solid rgba(167,149,186,.2);
+      background:rgba(255,255,255,.6);
+      box-shadow:0 10px 26px rgba(121,98,145,.1);
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .hero-form input{
+      flex:1;
+      min-width:0;
+      border:none;
+      outline:none;
+      background:transparent;
+      padding:0 22px;
+      color:#615663;
+      font-size:18px;
+      font-family:'Inter',sans-serif;
+    }
+    .hero-form input::placeholder{
+      color:#8c848e;
+    }
+    .hero-form button{
+      border:none;
+      min-height:60px;
+      padding:0 32px;
+      border-radius:999px;
+      background:linear-gradient(180deg, #9654ff 0%, #6d2ee8 100%);
+      color:#fff;
+      font-size:18px;
+      font-weight:700;
+      font-family:'Inter',sans-serif;
+      box-shadow:0 10px 20px rgba(121,68,231,.28);
+      cursor:pointer;
+    }
+    .hero-note{
+      margin-top:18px;
+      color:#918793;
+      font-size:15px;
+      font-weight:500;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .hero-note::before{
+      content:'⌘';
+      font-size:18px;
+      line-height:1;
+      opacity:.8;
+    }
+    .proof-section{
+      background:#f3f0e7;
+      border-top:1px solid rgba(181,170,154,.18);
+      padding:74px 0 82px;
+    }
+    .proof-inner{
+      width:min(1120px, calc(100vw - 56px));
+      margin:0 auto;
+    }
+    .proof-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+    .proof-title{
+      font-family:'Instrument Serif',serif;
+      font-size:clamp(42px,4.8vw,60px);
+      line-height:1.04;
+      letter-spacing:-1.6px;
+      color:#8d877f;
+    }
+    .proof-nav{
+      display:flex;
+      gap:14px;
+      flex-shrink:0;
+    }
+    .proof-arrow{
+      width:50px;
+      height:50px;
+      border-radius:999px;
+      border:none;
+      background:rgba(255,255,255,.68);
+      box-shadow:0 6px 16px rgba(114,102,87,.08);
+      color:#8c8377;
+      font-size:28px;
+      line-height:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+    }
+    .proof-track{
+      display:grid;
+      grid-template-columns:1fr 1fr 220px;
+      gap:22px;
+      margin-top:42px;
+      align-items:start;
+    }
+    .proof-card{
+      min-height:188px;
+      border-radius:24px;
+      border:1px solid rgba(180,170,156,.22);
+      background:#ffffff;
+      box-shadow:0 12px 26px rgba(114,102,87,.08);
+      padding:26px 28px 22px;
+      position:relative;
+      overflow:hidden;
+    }
+    .proof-card.slim{
+      opacity:.78;
+    }
+    .proof-quote-mark{
+      color:#dad4cb;
+      font-size:40px;
+      font-weight:700;
+      line-height:1;
+      font-family:'Inter',sans-serif;
+    }
+    .proof-card p{
+      margin-top:6px;
+      font-family:'Instrument Serif',serif;
+      font-size:26px;
+      line-height:1.15;
+      letter-spacing:-.7px;
+      color:#59524d;
+      max-width:540px;
+    }
+    .proof-author{
+      margin-top:28px;
+      display:flex;
+      align-items:center;
+      gap:16px;
+      color:#756d66;
+      font-size:16px;
+      font-weight:500;
+    }
+    .proof-avatar{
+      width:52px;
+      height:52px;
+      border-radius:999px;
+      border:4px solid #f3f0e7;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-weight:700;
+      font-size:16px;
+      margin-left:-8px;
+      box-shadow:0 4px 14px rgba(121,98,145,.12);
+      flex-shrink:0;
+    }
+    .proof-avatar.av-a{background:linear-gradient(135deg,#4ec5ff 0%,#2c71ff 100%)}
+    .proof-avatar.av-b{background:linear-gradient(135deg,#f2b58e 0%,#d66a53 100%)}
+    .proof-avatar.av-c{background:linear-gradient(135deg,#c9b7bb 0%,#8a6f77 100%)}
+    .proof-author strong{
+      color:#57514a;
+      font-weight:600;
+    }
+    .proof-author span{
+      color:#a29b93;
+      margin-left:6px;
+    }
+    .press-row{
+      margin-top:48px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:38px;
+      flex-wrap:wrap;
+      color:#9d968f;
+    }
+    .press-pill{
+      min-height:42px;
+      padding:0 24px;
+      border-radius:999px;
+      background:rgba(255,255,255,.34);
+      color:#938c85;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-size:16px;
+      font-weight:600;
+    }
+    .press-logo{
+      font-size:24px;
+      font-weight:700;
+      letter-spacing:-.8px;
+      color:#a09a92;
+      white-space:nowrap;
+    }
+    .press-logo.serif{
+      font-family:'Instrument Serif',serif;
+      font-size:28px;
+      letter-spacing:-.6px;
+    }
+    .press-logo.mono{
+      font-weight:800;
+      letter-spacing:-1.2px;
+    }
+    .how-section{
+      background:#f4f1e9;
+      border-top:1px solid rgba(181,170,154,.14);
+      padding:86px 0 108px;
+    }
+    .how-shell{
+      width:min(1120px, calc(100vw - 56px));
+      margin:0 auto;
+      border-radius:34px;
+      background:rgba(255,255,255,.26);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.46);
+      padding:84px 72px 88px;
+      text-align:center;
+    }
+    .how-title{
+      font-family:'Instrument Serif',serif;
+      font-size:clamp(54px,5vw,74px);
+      line-height:1;
+      letter-spacing:-1.6px;
+      color:#58514b;
+    }
+    .how-copy{
+      max-width:620px;
+      margin:16px auto 0;
+      font-size:22px;
+      line-height:1.5;
+      color:#8b837b;
+    }
+    .how-steps{
+      margin-top:86px;
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:52px;
+    }
+    .how-step{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+    }
+    .how-icon{
+      width:58px;
+      height:58px;
+      border-radius:18px;
+      border:2px solid rgba(184,174,164,.36);
+      color:#6c645d;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      background:rgba(255,255,255,.28);
+      font-size:30px;
+      line-height:1;
+    }
+    .how-badge{
+      position:absolute;
+      right:-10px;
+      bottom:-8px;
+      width:30px;
+      height:30px;
+      border-radius:999px;
+      background:#6e6760;
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:16px;
+      font-weight:700;
+      box-shadow:0 4px 10px rgba(91,82,72,.16);
+    }
+    .how-step h3{
+      margin-top:24px;
+      font-size:21px;
+      line-height:1.25;
+      color:#544d47;
+      font-weight:600;
+    }
+    .how-step p{
+      margin-top:12px;
+      font-size:18px;
+      line-height:1.45;
+      color:#8f877f;
+      max-width:290px;
+    }
+    .feature-section{
+      background:#f1f5f6;
+      padding:90px 0 110px;
+    }
+    .feature-shell{
+      width:min(1120px, calc(100vw - 56px));
+      margin:0 auto;
+      border-radius:34px;
+      background:#f4f8f8;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.52);
+      padding:82px 72px 76px;
+    }
+    .feature-title{
+      text-align:center;
+      font-family:'Instrument Serif',serif;
+      font-size:clamp(54px,5vw,76px);
+      line-height:1.02;
+      letter-spacing:-1.7px;
+      color:#414149;
+      max-width:650px;
+      margin:0 auto;
+    }
+    .feature-grid{
+      margin-top:72px;
+      display:grid;
+      grid-template-columns:1fr 1.08fr;
+      gap:60px;
+      align-items:center;
+    }
+    .feature-kicker{
+      font-size:13px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:#969da1;
+      font-weight:700;
+    }
+    .feature-copy h3{
+      margin-top:18px;
+      font-size:32px;
+      line-height:1.18;
+      letter-spacing:-1px;
+      color:#3c4347;
+      max-width:520px;
+    }
+    .feature-copy p{
+      margin-top:18px;
+      font-size:18px;
+      line-height:1.55;
+      color:#7d858b;
+      max-width:560px;
+    }
+    .feature-points{
+      margin-top:28px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px 34px;
+    }
+    .feature-point{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:#7b8387;
+      font-size:16px;
+      font-weight:600;
+      white-space:nowrap;
+    }
+    .feature-point::before{
+      content:'✓';
+      width:26px;
+      height:26px;
+      border-radius:999px;
+      background:#e4eaeb;
+      color:#7e878d;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:15px;
+      font-weight:700;
+      flex-shrink:0;
+    }
+    .feature-card{
+      border-radius:24px;
+      background:#fff;
+      border:1px solid rgba(183,193,198,.3);
+      box-shadow:0 16px 28px rgba(104,119,128,.08);
+      overflow:hidden;
+    }
+    .feature-card-top{
+      height:28px;
+      background:#eef3f5;
+      border-bottom:1px solid rgba(183,193,198,.28);
+    }
+    .feature-card-body{
+      padding:18px 18px 0;
+      color:#656e75;
+      font-size:14px;
+      line-height:1.45;
+    }
+    .feature-mail-title{
+      color:#5c6670;
+      font-weight:700;
+      margin-bottom:12px;
+    }
+    .feature-mail-meta{
+      display:grid;
+      gap:8px;
+      margin-bottom:12px;
+    }
+    .feature-mail-line{
+      height:16px;
+      border-radius:8px;
+      background:#f5f7f8;
+      border:1px solid rgba(183,193,198,.18);
+    }
+    .feature-mail-text{
+      margin-top:12px;
+      display:grid;
+      gap:8px;
+    }
+    .feature-mail-text .line{
+      height:14px;
+      border-radius:7px;
+      background:#f6f8f9;
+    }
+    .feature-mail-text .line.short{width:78%}
+    .feature-mail-text .line.tiny{width:66%}
+    .feature-card.browser{
+      padding:18px;
+    }
+    .browser-shell{
+      border-radius:22px;
+      background:#f5f8f9;
+      border:1px solid rgba(183,193,198,.34);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.66);
+      overflow:hidden;
+    }
+    .browser-top{
+      height:58px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:0 18px;
+      background:#ffffff;
+      border-bottom:1px solid rgba(183,193,198,.24);
+    }
+    .dot{
+      width:14px;
+      height:14px;
+      border-radius:999px;
+      display:inline-block;
+    }
+    .dot.red{background:#ff8e6e}
+    .dot.yellow{background:#ffd04a}
+    .dot.green{background:#50d25f}
+    .browser-tab{
+      margin-left:10px;
+      width:210px;
+      height:34px;
+      border-radius:10px 10px 0 0;
+      background:#ffffff;
+      border:1px solid rgba(183,193,198,.18);
+      border-bottom:none;
+    }
+    .browser-actions{
+      margin-left:auto;
+      display:flex;
+      gap:18px;
+      color:#b7bcc0;
+      font-size:26px;
+      line-height:1;
+    }
+    .browser-body{
+      min-height:360px;
+      background:#ffffff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .sad-folder{
+      width:132px;
+      height:102px;
+      border:5px solid #81938f;
+      border-radius:16px;
+      position:relative;
+      color:#81938f;
+    }
+    .sad-folder::before{
+      content:'';
+      position:absolute;
+      left:16px;
+      top:-18px;
+      width:48px;
+      height:20px;
+      border:5px solid #81938f;
+      border-bottom:none;
+      border-radius:12px 12px 0 0;
+      background:#fff;
+    }
+    .sad-folder .eye,
+    .sad-folder .eye2{
+      position:absolute;
+      top:34px;
+      width:10px;
+      height:10px;
+      border-left:4px solid #81938f;
+      border-bottom:4px solid #81938f;
+      transform:rotate(-45deg);
+    }
+    .sad-folder .eye{left:38px}
+    .sad-folder .eye2{right:38px}
+    .sad-folder .mouth{
+      position:absolute;
+      left:36px;
+      right:36px;
+      bottom:22px;
+      height:18px;
+      border-top:5px solid #81938f;
+      border-radius:18px 18px 0 0;
+    }
+    .feature-card.assistant{
+      padding:20px;
+      position:relative;
+    }
+    .assistant-window{
+      border-radius:22px;
+      overflow:hidden;
+      background:#ffffff;
+      border:1px solid rgba(183,193,198,.28);
+      box-shadow:0 12px 26px rgba(104,119,128,.08);
+    }
+    .assistant-top{
+      height:56px;
+      display:flex;
+      align-items:center;
+      padding:0 18px;
+      gap:10px;
+      background:#ffffff;
+      border-bottom:1px solid rgba(183,193,198,.22);
+    }
+    .assistant-brand{
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:#47434d;
+      font-size:16px;
+      font-weight:700;
+    }
+    .assistant-chip{
+      width:26px;
+      height:26px;
+      border-radius:999px;
+      background:linear-gradient(180deg,#b466ff 0%,#7a35ec 100%);
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:14px;
+      line-height:1;
+    }
+    .assistant-dots{
+      color:#9b9fa6;
+      font-size:24px;
+      line-height:1;
+    }
+    .assistant-banner{
+      margin:18px auto 12px;
+      width:82%;
+      min-height:50px;
+      border-radius:14px;
+      background:linear-gradient(180deg,#8a44f6 0%,#6f2ee8 100%);
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:0 16px;
+      font-size:15px;
+      font-weight:600;
+    }
+    .assistant-body{
+      padding:0 16px 16px;
+    }
+    .assistant-sheet{
+      border-radius:18px;
+      border:1px solid rgba(183,193,198,.24);
+      background:#ffffff;
+      padding:18px 18px 14px;
+      color:#5d656d;
+      box-shadow:0 4px 14px rgba(104,119,128,.06);
+    }
+    .assistant-line{
+      height:13px;
+      border-radius:7px;
+      background:#eef2f5;
+      margin-top:10px;
+    }
+    .assistant-line.wide{width:100%}
+    .assistant-line.mid{width:88%}
+    .assistant-line.short{width:72%}
+    .assistant-input{
+      margin-top:14px;
+      border-radius:16px;
+      border:1px solid rgba(183,193,198,.24);
+      background:#ffffff;
+      min-height:58px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 16px 0 18px;
+      color:#b4b7bc;
+      font-size:14px;
+    }
+    .assistant-send{
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#a058ff 0%,#7a35ec 100%);
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:18px;
+      line-height:1;
+      flex-shrink:0;
+    }
+    .stories-section{
+      background:#eceaf4;
+      padding:86px 0 96px;
+    }
+    .stories-shell{
+      width:min(1120px, calc(100vw - 56px));
+      margin:0 auto;
+      border-radius:34px;
+      background:#ededf7;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.52);
+      padding:82px 72px 70px;
+      text-align:center;
+    }
+    .stories-title{
+      font-family:'Instrument Serif',serif;
+      font-size:clamp(50px,5vw,72px);
+      line-height:1.06;
+      letter-spacing:-1.6px;
+      color:#595665;
+      max-width:780px;
+      margin:0 auto;
+    }
+    .stories-grid{
+      margin-top:54px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:28px;
+      text-align:left;
+    }
+    .story-card{
+      background:#fff;
+      border:1px solid rgba(182,176,196,.26);
+      border-radius:24px;
+      box-shadow:0 12px 24px rgba(98,92,116,.08);
+      padding:24px 26px 18px;
+    }
+    .story-card p{
+      font-family:'Instrument Serif',serif;
+      font-size:24px;
+      line-height:1.2;
+      letter-spacing:-.5px;
+      color:#5a5662;
+    }
+    .story-card .story-copy{
+      margin-top:18px;
+      font-family:'Inter',sans-serif;
+      font-size:16px;
+      line-height:1.45;
+      color:#8b8792;
+    }
+    .story-author{
+      margin-top:20px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:#867f88;
+      font-size:14px;
+      font-weight:600;
+    }
+    .story-author strong{color:#56505a}
+    .story-avatar{
+      width:46px;
+      height:46px;
+      border-radius:999px;
+      border:3px solid #edeaf4;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-size:14px;
+      font-weight:700;
+      flex-shrink:0;
+    }
+    .story-avatar.one{background:linear-gradient(135deg,#d8b67d 0%,#8d583e 100%)}
+    .story-avatar.two{background:linear-gradient(135deg,#b58158 0%,#5d3325 100%)}
+    .stories-cta{
+      margin-top:36px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:46px;
+      padding:0 22px;
+      border-radius:999px;
+      border:1px solid rgba(179,173,190,.22);
+      background:#ffffff;
+      color:#59545d;
+      font-size:16px;
+      font-weight:700;
+      text-decoration:none;
+      box-shadow:0 8px 18px rgba(98,92,116,.06);
+    }
+    .privacy-section{
+      background:#f2efe5;
+      padding:84px 0 86px;
+    }
+    .privacy-shell{
+      width:min(1120px, calc(100vw - 56px));
+      margin:0 auto;
+      border-radius:34px;
+      background:#465244;
+      color:#eef2eb;
+      padding:74px 72px;
+      display:grid;
+      grid-template-columns:1.05fr 1fr;
+      gap:72px;
+    }
+    .privacy-shell h2{
+      font-family:'Instrument Serif',serif;
+      font-size:clamp(52px,5vw,72px);
+      line-height:1;
+      letter-spacing:-1.6px;
+      color:#f2f5ef;
+    }
+    .privacy-shell p{
+      margin-top:20px;
+      font-size:18px;
+      line-height:1.48;
+      color:#c3cbc0;
+      max-width:430px;
+    }
+    .privacy-button{
+      margin-top:36px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:52px;
+      padding:0 28px;
+      border-radius:999px;
+      background:#ffffff;
+      color:#424d41;
+      font-size:17px;
+      font-weight:700;
+      text-decoration:none;
+      box-shadow:0 10px 16px rgba(22,28,22,.1);
+    }
+    .privacy-list{
+      display:flex;
+      flex-direction:column;
+      gap:34px;
+    }
+    .privacy-item{
+      display:grid;
+      grid-template-columns:104px 1fr;
+      gap:20px;
+      align-items:start;
+    }
+    .privacy-icon{
+      width:98px;
+      height:98px;
+      border-radius:22px;
+      background:rgba(255,255,255,.06);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#dce3d9;
+      font-size:38px;
+    }
+    .privacy-item h3{
+      font-size:22px;
+      line-height:1.28;
+      color:#f2f5ef;
+      margin-bottom:8px;
+    }
+    .privacy-item p{
+      margin:0;
+      font-size:17px;
+      line-height:1.45;
+      color:#c3cbc0;
+      max-width:none;
+    }
+    .benefit-section{
+      background:#f5f1e7;
+      padding:88px 0 96px;
+      position:relative;
+      overflow:hidden;
+    }
+    .benefit-section::after{
+      content:'';
+      position:absolute;
+      right:-120px;
+      bottom:-140px;
+      width:520px;
+      height:520px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(216,202,168,.2) 0%, rgba(216,202,168,0) 68%);
+      filter:blur(6px);
+    }
+    .benefit-shell{
+      width:min(1120px, calc(100vw - 56px));
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:1.1fr 1fr;
+      gap:72px;
+      align-items:start;
+      position:relative;
+      z-index:1;
+    }
+    .benefit-copy h2{
+      font-family:'Instrument Serif',serif;
+      font-size:clamp(54px,5vw,78px);
+      line-height:1.02;
+      letter-spacing:-1.7px;
+      color:#5b554d;
+      max-width:520px;
+    }
+    .benefit-copy p{
+      margin-top:24px;
+      font-size:26px;
+      line-height:1.35;
+      color:#90887f;
+      max-width:520px;
+    }
+    .benefit-list{
+      display:flex;
+      flex-direction:column;
+      gap:34px;
+    }
+    .benefit-item{
+      display:grid;
+      grid-template-columns:98px 1fr;
+      gap:22px;
+      align-items:start;
+    }
+    .benefit-icon{
+      width:96px;
+      height:96px;
+      border-radius:24px;
+      background:rgba(255,255,255,.54);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:36px;
+      color:#c8c0b6;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.6);
+    }
+    .benefit-item h3{
+      font-size:22px;
+      line-height:1.28;
+      color:#504a43;
+      margin-bottom:6px;
+    }
+    .benefit-item p{
+      font-size:17px;
+      line-height:1.45;
+      color:#9a9288;
+    }
+    .cta-download{
+      background:#f7f4eb;
+      padding:94px 0 110px;
+    }
+    .cta-download-shell{
+      width:min(1120px, calc(100vw - 56px));
+      margin:0 auto;
+      border-radius:34px;
+      background:#fcfbf8;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.7);
+      padding:86px 24px 92px;
+      text-align:center;
+    }
+    .cta-download-shell h2{
+      font-family:'Instrument Serif',serif;
+      font-size:clamp(58px,6vw,92px);
+      line-height:1.03;
+      letter-spacing:-2.2px;
+      color:#504944;
+      max-width:840px;
+      margin:0 auto;
+    }
+    .faq-section{
+      background:#f6f2e8;
+      padding:72px 0 90px;
+    }
+    .faq-shell{
+      width:min(1120px, calc(100vw - 56px));
+      margin:0 auto;
+    }
+    .faq-grid{
+      display:grid;
+      grid-template-columns:1fr 1.12fr;
+      gap:80px;
+      align-items:start;
+    }
+    .faq-copy h2{
+      font-family:'Instrument Serif',serif;
+      font-size:58px;
+      line-height:1;
+      letter-spacing:-1.6px;
+      color:#565049;
+    }
+    .faq-copy p{
+      margin-top:20px;
+      font-size:19px;
+      line-height:1.42;
+      color:#918880;
+      max-width:320px;
+    }
+    .faq-list{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .faq-item{
+      min-height:48px;
+      border-radius:14px;
+      background:#ffffff;
+      border:1px solid rgba(188,178,164,.2);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 18px;
+      color:#70695f;
+      font-size:16px;
+      font-weight:600;
+      box-shadow:0 8px 16px rgba(113,103,92,.04);
+    }
+    .faq-item span:last-child{
+      color:#a7a098;
+      font-size:22px;
+      line-height:1;
+    }
+    .footer-area{
+      margin-top:92px;
+      padding-top:28px;
+      border-top:1px solid rgba(191,182,168,.32);
+      display:grid;
+      grid-template-columns:1.2fr 1fr 1fr 1fr;
+      gap:42px;
+      align-items:start;
+    }
+    .footer-brand{
+      color:#60574f;
+    }
+    .footer-brand .brand-row{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:18px;
+      font-weight:700;
+      margin-bottom:8px;
+    }
+    .footer-brand-mark{
+      width:24px;
+      height:24px;
+      border-radius:8px;
+      background:linear-gradient(180deg,#b462ff 0%,#6f2de8 100%);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-size:12px;
+    }
+    .footer-brand p{
+      color:#948b83;
+      font-size:16px;
+      line-height:1.42;
+      margin-bottom:18px;
+    }
+    .footer-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:40px;
+      padding:0 18px;
+      border-radius:999px;
+      border:1px solid rgba(188,178,164,.22);
+      background:#fff;
+      color:#665e57;
+      text-decoration:none;
+      font-size:15px;
+      font-weight:700;
+      box-shadow:0 6px 12px rgba(113,103,92,.04);
+    }
+    .footer-col h4{
+      color:#a8a097;
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin-bottom:16px;
+    }
+    .footer-col a{
+      display:block;
+      color:#766f66;
+      text-decoration:none;
+      font-size:15px;
+      margin-bottom:10px;
+    }
+    .footer-copy{
+      margin-top:18px;
+      color:#b0a89f;
+      font-size:13px;
+    }
+    .footer-badge{
+      justify-self:end;
+      align-self:end;
+      min-height:40px;
+      padding:0 16px;
+      border-radius:12px;
+      border:1px solid rgba(255,143,88,.32);
+      background:#fff7f2;
+      color:#f06e3d;
+      font-size:13px;
+      font-weight:700;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+    @media (max-width:900px){
+      .topbar{
+        grid-template-columns:1fr auto;
+      }
+      .brand{
+        justify-self:end;
+        order:2;
+      }
+      .nav-cta{
+        display:none;
+      }
+      .nav{
+        gap:20px;
+        flex-wrap:wrap;
+      }
+      .hero-content{
+        margin-top:64px;
+      }
+      .hero-copy{
+        font-size:18px;
+      }
+      .proof-track{
+        grid-template-columns:1fr;
+      }
+      .proof-card.slim{
+        display:none;
+      }
+      .how-steps{
+        grid-template-columns:1fr;
+        gap:40px;
+      }
+      .feature-grid{
+        grid-template-columns:1fr;
+        gap:34px;
+      }
+      .feature-points{
+        grid-template-columns:1fr;
+      }
+      .stories-grid,
+      .privacy-shell,
+      .benefit-shell,
+      .faq-grid,
+      .footer-area{
+        grid-template-columns:1fr;
+      }
+      .privacy-item,
+      .benefit-item{
+        grid-template-columns:84px 1fr;
+      }
+      .footer-badge{
+        justify-self:start;
+      }
+    }
+    @media (max-width:640px){
+      body{padding:0}
+      .hero-shell{
+        border-radius:0;
+        min-height:100vh;
+      }
+      .topbar{
+        width:calc(100vw - 32px);
+        margin-top:20px;
+        grid-template-columns:1fr;
+        justify-items:center;
+      }
+      .nav{
+        justify-content:center;
+      }
+      .brand{
+        justify-self:center;
+      }
+      .hero-content{
+        width:calc(100vw - 32px);
+        margin-top:52px;
+      }
+      .hero-title{
+        font-size:clamp(52px, 16vw, 84px);
+        letter-spacing:-1.6px;
+      }
+      .hero-copy{
+        font-size:17px;
+      }
+      .hero-form{
+        min-height:auto;
+        border-radius:30px;
+        padding:12px;
+        flex-direction:column;
+      }
+      .hero-form input,
+      .hero-form button{
+        width:100%;
+      }
+      .hero-form input{
+        min-height:54px;
+        padding:0 14px;
+      }
+      .hero-form button{
+        min-height:54px;
+      }
+      .proof-inner{
+        width:calc(100vw - 28px);
+      }
+      .proof-head{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .proof-title{
+        font-size:38px;
+      }
+      .proof-card{
+        padding:22px 20px 18px;
+      }
+      .proof-card p{
+        font-size:22px;
+      }
+      .press-row{
+        gap:20px 28px;
+      }
+      .press-logo{
+        font-size:20px;
+      }
+      .how-shell{
+        width:calc(100vw - 28px);
+        padding:58px 22px 62px;
+      }
+      .how-title{
+        font-size:44px;
+      }
+      .how-copy{
+        font-size:18px;
+      }
+      .how-step p{
+        font-size:17px;
+      }
+      .feature-shell{
+        width:calc(100vw - 28px);
+        padding:58px 22px 60px;
+      }
+      .feature-title{
+        font-size:44px;
+      }
+      .feature-copy h3{
+        font-size:28px;
+      }
+      .feature-copy p{
+        font-size:17px;
+      }
+      .feature-point{
+        white-space:normal;
+      }
+      .stories-shell,
+      .privacy-shell,
+      .cta-download-shell{
+        width:calc(100vw - 28px);
+        padding-left:22px;
+        padding-right:22px;
+      }
+      .benefit-shell,
+      .faq-shell{
+        width:calc(100vw - 28px);
+      }
+      .stories-title,
+      .privacy-shell h2,
+      .benefit-copy h2,
+      .cta-download-shell h2{
+        font-size:44px;
+      }
+      .benefit-copy p{
+        font-size:21px;
+      }
+      .proof-title,
+      .how-title,
+      .feature-title{
+        letter-spacing:-1.2px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero-shell">
+    <header class="topbar">
+      <nav class="nav">
+        <a href="#">Services</a>
+        <a href="#">Work</a>
+        <a href="#">Solutions <span>⌄</span></a>
+      </nav>
+
+      <a class="brand" href="#" aria-label="Reva Infotech home">
+        <span class="brand-mark"></span>
+      </a>
+
+      <a class="nav-cta" href="#">Start a Project</a>
+    </header>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-icon"></span>
+        <span>Custom software and AI-powered products for the modern world</span>
+        <span class="hero-badge-arrow">›</span>
+      </div>
+
+      <h1 class="hero-title">Build <em>powerful</em><br />digital products</h1>
+
+      <p class="hero-copy">
+        Reva Infotech designs personal applications, web platforms, mobile apps, and custom software systems that
+        help startups, teams, and enterprises move faster with better tools.
+      </p>
+
+      <form class="hero-form">
+        <input type="email" placeholder="Enter your work email" />
+        <button type="submit">Book a Call</button>
+      </form>
+
+      <div class="hero-note">Available for web, mobile, AI, and custom business platforms.</div>
+    </div>
+  </section>
+
+  <section class="proof-section">
+    <div class="proof-inner">
+      <div class="proof-head">
+        <h2 class="proof-title">Modern teams choose Reva to build smarter, faster, better software.</h2>
+        <div class="proof-nav" aria-hidden="true">
+          <button class="proof-arrow" type="button">‹</button>
+          <button class="proof-arrow" type="button">›</button>
+        </div>
+      </div>
+
+      <div class="proof-track">
+        <article class="proof-card">
+          <div class="proof-quote-mark">“</div>
+          <p>Reva brought product thinking, design clarity, and engineering execution into one reliable team.</p>
+          <div class="proof-author">
+            <div class="proof-avatar av-a">AT</div>
+            <div><strong>Aarav Thomas</strong><span>Founder, Northstar Health</span></div>
+          </div>
+        </article>
+
+        <article class="proof-card">
+          <div class="proof-quote-mark">“</div>
+          <p>Their team translated messy operations into software our staff actually wanted to use.</p>
+          <div class="proof-author">
+            <div class="proof-avatar av-b">SK</div>
+            <div><strong>Sana Khan</strong><span>Operations Lead, BluePeak</span></div>
+          </div>
+        </article>
+
+        <article class="proof-card slim">
+          <div class="proof-quote-mark">“</div>
+          <p>From UX to backend delivery, Reva felt like an embedded product and engineering partner.</p>
+          <div class="proof-author">
+            <div class="proof-avatar av-c">RM</div>
+            <div><strong>Rhea Mehta</strong><span>Director, Apex Logistics</span></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="press-row">
+        <div class="press-pill">Trusted for</div>
+        <div class="press-logo serif">Web Apps</div>
+        <div class="press-logo serif">Mobile Products</div>
+        <div class="press-logo mono">AI</div>
+        <div class="press-logo">Custom Platforms</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-section">
+    <div class="how-shell">
+      <h2 class="how-title">How it works</h2>
+      <p class="how-copy">Reva turns ideas, workflows, and business needs into polished software products.</p>
+
+      <div class="how-steps">
+        <article class="how-step">
+          <div class="how-icon">
+            ↓
+            <span class="how-badge">1</span>
+          </div>
+          <h3>Discover the opportunity</h3>
+          <p>We map your goals, users, workflows, and technical constraints to define the right product direction.</p>
+        </article>
+
+        <article class="how-step">
+          <div class="how-icon">
+            ⌂
+            <span class="how-badge">2</span>
+          </div>
+          <h3>Design and build</h3>
+          <p>Our team creates the product UX, architecture, integrations, and engineering foundation around your workflow.</p>
+        </article>
+
+        <article class="how-step">
+          <div class="how-icon">
+            ✦
+            <span class="how-badge">3</span>
+          </div>
+          <h3>Launch and scale</h3>
+          <p>We help you ship, improve adoption, extend features, and evolve the product as your business grows.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-section">
+    <div class="feature-shell">
+      <h2 class="feature-title">Build software around real workflows</h2>
+
+      <div class="feature-grid">
+        <div class="feature-copy">
+          <div class="feature-kicker">Custom Software</div>
+          <h3>Design internal tools, portals, and platforms that match how your business actually operates</h3>
+          <p>We build tailored software instead of forcing teams into generic systems, giving you cleaner workflows, better adoption, and tools that support the way your people already work.</p>
+
+          <div class="feature-points">
+            <div class="feature-point">Internal business platforms</div>
+            <div class="feature-point">Client and admin portals</div>
+            <div class="feature-point">Workflow automation systems</div>
+            <div class="feature-point">Operational dashboards</div>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-top"></div>
+          <div class="feature-card-body">
+            <div class="feature-mail-title">Operations Workflow Overview</div>
+            <div class="feature-mail-meta">
+              <div class="feature-mail-line"></div>
+              <div class="feature-mail-line"></div>
+            </div>
+            <div style="margin-bottom:14px;color:#464d55;font-weight:600">Team,</div>
+            <div style="margin-bottom:18px">Here is the proposed structure for your custom platform rollout:</div>
+            <div class="feature-mail-text">
+              <div class="line"></div>
+              <div class="line"></div>
+              <div class="line short"></div>
+              <div class="line"></div>
+              <div class="line short"></div>
+              <div class="line"></div>
+              <div class="line tiny"></div>
+              <div class="line"></div>
+              <div class="line short"></div>
+              <div class="line tiny"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-section">
+    <div class="feature-shell">
+      <div class="feature-grid">
+        <div class="feature-copy">
+          <div class="feature-kicker">Modernization</div>
+          <h3>Upgrade fragile systems and replace manual processes with modern software</h3>
+          <p>Reva helps teams move away from spreadsheets, disconnected tools, and outdated dashboards by rebuilding workflows into scalable, reliable digital products.</p>
+
+          <div class="feature-points">
+            <div class="feature-point">Legacy system redesign</div>
+            <div class="feature-point">Workflow simplification</div>
+            <div class="feature-point">Data cleanup and migration</div>
+            <div class="feature-point">Reliable product foundations</div>
+          </div>
+        </div>
+
+        <div class="feature-card browser">
+          <div class="browser-shell">
+            <div class="browser-top">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <div class="browser-tab"></div>
+              <div class="browser-actions">× ＋</div>
+            </div>
+            <div class="browser-body">
+              <div class="sad-folder">
+                <span class="eye"></span>
+                <span class="eye2"></span>
+                <span class="mouth"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-section">
+    <div class="feature-shell">
+      <div class="feature-grid">
+        <div class="feature-copy">
+          <div class="feature-kicker">AI Applications</div>
+          <h3>Bring practical AI into your product, team workflows, and customer experiences</h3>
+          <p>We build AI-powered assistants, search experiences, automation flows, and intelligent product features that solve real user problems instead of adding AI for the sake of it.</p>
+
+          <div class="feature-points">
+            <div class="feature-point">AI assistants and copilots</div>
+            <div class="feature-point">Search and summarization</div>
+            <div class="feature-point">Workflow automation</div>
+            <div class="feature-point">AI-enhanced product features</div>
+          </div>
+        </div>
+
+        <div class="feature-card assistant">
+          <div class="assistant-window">
+            <div class="assistant-top">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <div class="assistant-brand">
+                <span class="assistant-chip">◀</span>
+                <span>Ask Reva AI</span>
+              </div>
+              <div class="assistant-dots">…</div>
+            </div>
+            <div class="assistant-banner">Generate a product brief for an AI-enabled field operations app</div>
+            <div class="assistant-body">
+              <div class="assistant-sheet">
+                <div style="font-weight:700;color:#545b63;margin-bottom:12px">Project brief: AI-enabled field operations app</div>
+                <div style="color:#4f565e;margin-bottom:10px">Overview</div>
+                <div class="assistant-line wide"></div>
+                <div class="assistant-line wide"></div>
+                <div class="assistant-line mid"></div>
+                <div class="assistant-line wide"></div>
+                <div class="assistant-line mid"></div>
+                <div class="assistant-line short"></div>
+                <div class="assistant-line wide"></div>
+              </div>
+              <div class="assistant-input">
+                <span>Ask about features, workflows, and product ideas</span>
+                <span class="assistant-send">➤</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stories-section">
+    <div class="stories-shell">
+      <h2 class="stories-title">For teams that want better software, stronger delivery, and real product momentum</h2>
+
+      <div class="stories-grid">
+        <article class="story-card">
+          <p>“Reva helped us turn a rough concept into a polished platform our team could actually run on.”</p>
+          <div class="story-copy">We needed a partner who could think through product strategy, UX, and engineering together. Reva simplified the process and delivered a system that felt purpose-built for our business.</div>
+          <div class="story-author">
+            <div class="story-avatar one">L</div>
+            <div><strong>Leena</strong><span>Product Lead at Dashlane Ops</span></div>
+          </div>
+        </article>
+
+        <article class="story-card">
+          <p>“Their team modernized an outdated workflow and gave us software that scaled with the company.”</p>
+          <div class="story-copy">What stood out was the balance of speed and thoughtfulness. The product looked better, worked better, and reduced the operational friction our staff dealt with every day.</div>
+          <div class="story-author">
+            <div class="story-avatar two">N</div>
+            <div><strong>Nikhil</strong><span>Operations Director at Epic Works</span></div>
+          </div>
+        </article>
+      </div>
+
+      <a class="stories-cta" href="#">View case studies</a>
+    </div>
+  </section>
+
+  <section class="privacy-section">
+    <div class="privacy-shell">
+      <div>
+        <h2>Built with quality and trust</h2>
+        <p>When software becomes part of daily operations, reliability, security, and clarity in delivery matter as much as features.</p>
+        <a class="privacy-button" href="#">See our process</a>
+      </div>
+
+      <div class="privacy-list">
+        <article class="privacy-item">
+          <div class="privacy-icon">▭</div>
+          <div>
+            <h3>Secure architecture</h3>
+            <p>We build secure architectures and sensible data flows that match the needs of each product, team, and business environment.</p>
+          </div>
+        </article>
+        <article class="privacy-item">
+          <div class="privacy-icon">☁</div>
+          <div>
+            <h3>Modern integrations</h3>
+            <p>From APIs and third-party services to internal systems, we connect products cleanly so teams can work in one reliable workflow.</p>
+          </div>
+        </article>
+        <article class="privacy-item">
+          <div class="privacy-icon">◔</div>
+          <div>
+            <h3>Long-term product thinking</h3>
+            <p>We focus on maintainable design systems, scalable engineering, and software that can grow with your users and operations.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="benefit-section">
+    <div class="benefit-shell">
+      <div class="benefit-copy">
+        <h2>Make software more useful, usable, and valuable</h2>
+        <p>Better products create better operations, stronger adoption, and more room to grow.</p>
+      </div>
+
+      <div class="benefit-list">
+        <article class="benefit-item">
+          <div class="benefit-icon">✧</div>
+          <div>
+            <h3>Work with one strong team</h3>
+            <p>Work with a team that can guide strategy, design, engineering, and launch in one place.</p>
+          </div>
+        </article>
+        <article class="benefit-item">
+          <div class="benefit-icon">🔈</div>
+          <div>
+            <h3>Improve user adoption</h3>
+            <p>Create software people actually want to use because it feels intuitive and fits real workflows.</p>
+          </div>
+        </article>
+        <article class="benefit-item">
+          <div class="benefit-icon">☼</div>
+          <div>
+            <h3>Scale with confidence</h3>
+            <p>Launch on solid technical foundations that support growth, integrations, and future product expansion.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-download">
+    <div class="cta-download-shell">
+      <h2>Start building your next software product with Reva Infotech</h2>
+      <form class="hero-form" style="margin:42px auto 0">
+        <input type="email" placeholder="Enter your work email" />
+        <button type="submit">Talk to Our Team</button>
+      </form>
+      <div class="hero-note" style="justify-content:center">Book a discovery call for your app, platform, or modernization project.</div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="faq-shell">
+      <div class="faq-grid">
+        <div class="faq-copy">
+          <h2>FAQ</h2>
+          <p>Questions about scope, timelines, technology, or AI product delivery? We can walk you through it.</p>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item"><span>What types of software does Reva Infotech build?</span><span>⌄</span></div>
+          <div class="faq-item"><span>Can you modernize an existing internal system?</span><span>⌄</span></div>
+          <div class="faq-item"><span>Do you handle both design and development?</span><span>⌄</span></div>
+          <div class="faq-item"><span>Can Reva build AI-powered features into our product?</span><span>⌄</span></div>
+          <div class="faq-item"><span>How do projects usually start?</span><span>⌄</span></div>
+        </div>
+      </div>
+
+      <div class="footer-area">
+        <div class="footer-brand">
+          <div class="brand-row">
+            <span class="footer-brand-mark">◀</span>
+            <span>Reva Infotech</span>
+          </div>
+          <p>Custom software and AI-powered applications for the modern world.</p>
+          <a class="footer-cta" href="#">Start a Project</a>
+          <div class="footer-copy">©2026 Reva Infotech. All rights reserved.</div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Work</a>
+          <a href="#">Process</a>
+          <a href="#">Contact</a>
+          <a href="#">Careers</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="#">Custom Software</a>
+          <a href="#">Web Applications</a>
+          <a href="#">Mobile Apps</a>
+          <a href="#">AI Applications</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Solutions</h4>
+          <a href="#">Internal Tools</a>
+          <a href="#">Client Portals</a>
+          <a href="#">Workflow Automation</a>
+          <a href="#">Legacy Modernization</a>
+        </div>
+
+        <div class="footer-badge">Product + Design + Engineering</div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
