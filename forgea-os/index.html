@@ -75,37 +75,20 @@
       letter-spacing: -0.03em;
     }
 
-    .brand-mark {
-      width: 28px;
-      height: 28px;
-      border-radius: 8px;
-      background: linear-gradient(135deg, rgb(17, 24, 39) 0%, rgb(51, 65, 85) 100%);
-      position: relative;
-      box-shadow: 0 8px 18px rgba(59, 99, 246, 0.2);
+    .brand-logo {
+      display: block;
+      width: auto;
+      height: auto;
+      object-fit: contain;
     }
 
-    .brand-mark::before,
-    .brand-mark::after {
-      content: "";
-      position: absolute;
-      background: #ffffff;
-      border-radius: 999px;
+    .brand-logo-full {
+      height: 70px;
+      width: auto;
     }
 
-    .brand-mark::before {
-      width: 13px;
-      height: 4px;
-      left: 7px;
-      top: 8px;
-      transform: rotate(34deg);
-    }
-
-    .brand-mark::after {
-      width: 9px;
-      height: 4px;
-      left: 10px;
-      top: 14px;
-      transform: rotate(34deg);
+    .brand--nav .brand-logo-full {
+      height: 70px;
     }
 
     .nav-links {
@@ -604,6 +587,26 @@
       box-shadow: 0 22px 44px rgba(31, 45, 86, 0.08);
       padding: 18px;
       min-height: 230px;
+    }
+
+    .step-visual-image {
+      padding: 0;
+      overflow: hidden;
+      background: #ffffff;
+      height: 300px;
+      min-height: 300px;
+    }
+
+    .step-visual-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .step-visual-image--start img {
+      object-position: left top;
     }
 
     .surface {
@@ -1257,6 +1260,7 @@
 
     .footer-bottom .brand {
       font-size: 16px;
+      gap: 12px;
     }
 
     .footer-social {
@@ -1330,9 +1334,8 @@
 
   <nav class="nav">
     <div class="container nav-row">
-      <a class="brand" href="#">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span>forgeaos</span>
+      <a class="brand brand--nav" href="#">
+        <img class="brand-logo brand-logo-full" src="./ForgeaOS-logo-half.svg" alt="ForgeaOS logo" />
       </a>
 
       <div class="nav-actions">
@@ -1420,26 +1423,8 @@
               <a class="step-link" href="#">Learn more <span>→</span></a>
             </div>
           </div>
-          <div class="step-visual">
-            <div class="surface">
-              <div class="surface-row two">
-                <div class="panel">
-                  <div class="panel-title"><strong>Inbound setup</strong><span class="status blue">Ready</span></div>
-                  <div class="bar-line w-90"></div>
-                  <div class="bar-line w-62"></div>
-                  <div class="bar-line w-76"></div>
-                </div>
-                <div class="mini-stack">
-                  <div class="stat-pill"><span>john@forgea.com</span><strong>Active</strong></div>
-                  <div class="stat-pill"><span>ops@northstar.in</span><strong>Active</strong></div>
-                  <div class="stat-pill"><span>plant@bluepeak.io</span><strong class="status yellow">Warning</strong></div>
-                </div>
-              </div>
-              <div class="surface-row two">
-                <div class="panel-title"><span>DCM / DAMRC / SPF</span><strong style="color:#5db778">Auto-configured</strong></div>
-                <div class="panel-title"><span>Total setup time</span><strong style="color:#5db778">under 10 min</strong></div>
-              </div>
-            </div>
+          <div class="step-visual step-visual-image step-visual-image--start">
+            <img src="./section1.jpeg" alt="ForgeaOS section 1 visual" />
           </div>
         </article>
 
@@ -1454,24 +1439,8 @@
               <a class="step-link" href="#">Learn more <span>→</span></a>
             </div>
           </div>
-          <div class="step-visual">
-            <div class="surface">
-              <div class="panel">
-                <div class="panel-title"><strong>People</strong><span>852k+</span><strong>Companies 420k+</strong></div>
-                <div class="tag-row">
-                  <span class="tag-pill">Item</span>
-                  <span class="tag-pill">Supplier</span>
-                  <span class="tag-pill">Revenue</span>
-                  <span class="tag-pill">Tech stack</span>
-                  <span class="tag-pill">+ more</span>
-                </div>
-                <div class="list">
-                  <div class="list-item"><span>Sarah Chen</span><span class="status green">Verified</span></div>
-                  <div class="list-item"><span>procurement@acme.com</span><span>Plant A</span></div>
-                  <div class="list-item"><span>Data points per contact</span><span style="color:rgb(30, 41, 55);font-weight:800">25+</span></div>
-                </div>
-              </div>
-            </div>
+          <div class="step-visual step-visual-image">
+            <img src="./section2.jpeg" alt="ForgeaOS section 2 visual" />
           </div>
         </article>
 
@@ -1486,25 +1455,8 @@
               <a class="step-link" href="#">Learn more <span>→</span></a>
             </div>
           </div>
-          <div class="step-visual">
-            <div class="surface">
-              <div class="tag-row">
-                <span class="tag-pill">Email</span>
-                <span class="tag-pill">Call</span>
-                <span class="tag-pill">LinkedIn</span>
-                <span class="tag-pill">WhatsApp</span>
-                <span class="tag-pill">Task</span>
-              </div>
-              <div class="list">
-                <div class="list-item"><span>Intro email</span><span>Day +3</span></div>
-                <div class="list-item"><span>Follow-up email #1</span><span>Day +6</span></div>
-                <div class="list-item"><span>LinkedIn connect</span><span>Day +7</span></div>
-                <div class="list-item"><span>WhatsApp follow-up</span><span>Day +9</span></div>
-                <div class="list-item"><span>Discovery call</span><span>Day +11</span></div>
-                <div class="list-item"><span>Custom task</span><span>Day +11</span></div>
-                <div class="list-item"><span>Opened but no reply → Trigger Subsequence A</span><span style="color:#d08f2e">Rule</span></div>
-              </div>
-            </div>
+          <div class="step-visual step-visual-image">
+            <img src="./section3.jpeg" alt="ForgeaOS section 3 visual" />
           </div>
         </article>
 
@@ -1519,18 +1471,8 @@
               <a class="step-link" href="#">Learn more <span>→</span></a>
             </div>
           </div>
-          <div class="step-visual">
-            <div class="surface">
-              <div class="panel-title"><strong>Warmup Active</strong><span>Auto in background</span></div>
-              <div class="ring-wrap">
-                <div class="ring"></div>
-                <div class="ring-copy">
-                  <div class="ring-line"><span>Downtime risk</span><strong>0.02%</strong></div>
-                  <div class="ring-line"><span>Deliverability</span><strong>99.4%</strong></div>
-                  <div class="ring-line"><span>DKIM/DMARC</span><strong>Passed</strong></div>
-                </div>
-              </div>
-            </div>
+          <div class="step-visual step-visual-image">
+            <img src="./section4.jpeg" alt="ForgeaOS section 4 visual" />
           </div>
         </article>
 
@@ -1545,31 +1487,8 @@
               <a class="step-link" href="#">Learn more <span>→</span></a>
             </div>
           </div>
-          <div class="step-visual">
-            <div class="surface crm-grid">
-              <div class="column-stack">
-                <div class="list-item"><span>Sarah Chen</span><span>Active</span></div>
-                <div class="list-item"><span>James Rivers</span><span>Auto-routed</span></div>
-              </div>
-              <div class="deal-board">
-                <div class="deal-col">
-                  <b>Idea</b>
-                  <div class="deal-box deal-blue">Meeting<br />$10,000</div>
-                </div>
-                <div class="deal-col">
-                  <b>Proposal</b>
-                  <div class="deal-box deal-yellow">Pilot Project<br />$8,500</div>
-                </div>
-                <div class="deal-col">
-                  <b>Won</b>
-                  <div class="deal-box deal-green">New Site Rollout<br />$15,000</div>
-                </div>
-                <div class="deal-col">
-                  <b>Tasks</b>
-                  <div class="deal-box deal-blue">Approvals<br />4 pending</div>
-                </div>
-              </div>
-            </div>
+          <div class="step-visual step-visual-image">
+            <img src="./section5.jpeg" alt="ForgeaOS section 5 visual" />
           </div>
         </article>
       </div>
@@ -1777,7 +1696,7 @@
         </div>
 
         <div class="footer-bottom">
-          <a class="brand" href="#"><span class="brand-mark" aria-hidden="true"></span><span>forgeaos</span></a>
+          <a class="brand" href="#"><img class="brand-logo brand-logo-full" src="./ForgeaOS-logo-half.svg" alt="ForgeaOS logo" /></a>
           <div class="footer-social">
             <a href="#">LinkedIn</a>
             <a href="#">YouTube</a>
