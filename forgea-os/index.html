@@ -474,6 +474,22 @@
     .reveal-up { opacity: 0; transform: translate3d(0, 28px, 0); transition: opacity .6s ease, transform .7s var(--ease-out); }
     .reveal-up.is-visible { opacity: 1; transform: translate3d(0,0,0); }
 
+    /* staggered cascade for grid/row items so siblings don't reveal in lockstep */
+    .bento-grid .tile.reveal-up:nth-child(2) { transition-delay: .1s; }
+    .strip .strip-card.reveal-up:nth-child(2) { transition-delay: .1s; }
+    .strip .strip-card.reveal-up:nth-child(3) { transition-delay: .2s; }
+    .metric-grid .metric.reveal-up:nth-child(2) { transition-delay: .08s; }
+    .metric-grid .metric.reveal-up:nth-child(3) { transition-delay: .16s; }
+    .metric-grid .metric.reveal-up:nth-child(4) { transition-delay: .24s; }
+    .review-grid .review-card.reveal-up:nth-child(2) { transition-delay: .08s; }
+    .review-grid .review-card.reveal-up:nth-child(3) { transition-delay: .16s; }
+    .review-grid .review-card.reveal-up:nth-child(4) { transition-delay: .24s; }
+    .review-grid .review-card.reveal-up:nth-child(5) { transition-delay: .32s; }
+    .review-grid .review-card.reveal-up:nth-child(6) { transition-delay: .4s; }
+    .audience-grid .audience-card.reveal-up:nth-child(2) { transition-delay: .08s; }
+    .audience-grid .audience-card.reveal-up:nth-child(3) { transition-delay: .16s; }
+    .audience-grid .audience-card.reveal-up:nth-child(4) { transition-delay: .24s; }
+
     @media (prefers-reduced-motion: reduce) {
       .reveal-up, .pain::before, .pain::after, .cta-band::before, .cta-band::after { animation: none !important; transform: none !important; }
       .tile-visual:not(.is-loaded):not(.is-error), .strip-visual:not(.is-loaded):not(.is-error) { animation: none !important; }
@@ -672,7 +688,7 @@
 
     <section class="pain">
       <div class="container">
-        <div class="pain-inner">
+        <div class="pain-inner reveal-up">
           <span class="kicker pain-kicker">The way it works today</span>
           <div class="pain-lines">
             <p class="pain-line">Purchase requests stuck in inboxes. Inventory counts nobody trusted. Production schedules changing every shift.</p>
@@ -687,7 +703,7 @@
     </section>
 
     <section class="transition">
-      <div class="container transition-inner">
+      <div class="container transition-inner reveal-up">
         <h3>What if it takes <em>hours</em>, and not months, to run better operations?</h3>
         <span class="transition-num mono">[ 02 / 06 ]</span>
       </div>
@@ -697,7 +713,7 @@
       <div class="container">
         <span class="kicker">Modules</span>
         <div class="bento-grid">
-          <article class="tile tile--a" id="manufacturing">
+          <article class="tile tile--a reveal-up" id="manufacturing">
             <div class="tile-visual" data-src="./section1.jpeg">
               <img alt="ForgeaOS procurement and inventory setup screen" />
               <div class="img-fallback">
@@ -714,7 +730,7 @@
             </div>
           </article>
 
-          <article class="tile tile--b" id="inventory">
+          <article class="tile tile--b reveal-up" id="inventory">
             <div class="tile-visual" data-src="./section2.jpeg">
               <img alt="ForgeaOS live inventory view across sites" />
               <div class="img-fallback">
@@ -733,7 +749,7 @@
         </div>
 
         <div class="strip">
-          <article class="strip-card" id="mobile-app">
+          <article class="strip-card reveal-up" id="mobile-app">
             <div class="strip-visual" data-src="./section3.jpeg">
               <img alt="ForgeaOS multi-channel automation and notifications" />
               <div class="img-fallback">
@@ -750,7 +766,7 @@
             </div>
           </article>
 
-          <article class="strip-card" id="maintenance">
+          <article class="strip-card reveal-up" id="maintenance">
             <div class="strip-visual" data-src="./section4.jpeg">
               <img alt="ForgeaOS maintenance and asset reliability suite" />
               <div class="img-fallback">
@@ -767,7 +783,7 @@
             </div>
           </article>
 
-          <article class="strip-card">
+          <article class="strip-card reveal-up">
             <div class="strip-visual" data-src="./section5.jpeg">
               <img alt="ForgeaOS unified inbox and approvals control layer" />
               <div class="img-fallback">
@@ -887,14 +903,14 @@
 
     <section class="faq-section">
       <div class="container faq-shell">
-        <div class="faq-copy">
+        <div class="faq-copy reveal-up">
           <span class="kicker">FAQ</span>
           <h3 style="margin-top:14px; font-size:clamp(28px,3.6vw,44px); letter-spacing:-0.03em; font-weight:800;">Got <em style="font-style:italic;color:var(--muted);font-weight:700;">questions?</em></h3>
           <p>Can't find what you're looking for? Our team typically responds in under two hours for pre-sales questions.</p>
           <a class="faq-support" href="#">Contact support →</a>
         </div>
 
-        <div>
+        <div class="reveal-up">
           <div class="faq-search">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
             <input type="search" id="faq-search-input" placeholder="Search questions…" aria-label="Search frequently asked questions" autocomplete="off" />
@@ -953,21 +969,23 @@
       <div class="container">
         <div id="contact"></div>
         <div id="book-demo"></div>
-        <span class="kicker">Ready when you are</span>
-        <h3>Stop stitching tools.<br />Start operating.</h3>
-        <p>Run procurement, inventory, production, maintenance, and approvals from one platform. Free for 15 days.</p>
+        <div class="reveal-up">
+          <span class="kicker">Ready when you are</span>
+          <h3>Stop stitching tools.<br />Start operating.</h3>
+          <p>Run procurement, inventory, production, maintenance, and approvals from one platform. Free for 15 days.</p>
 
-        <div class="hero-cta-row">
-          <a class="btn btn-primary magnetic" href="https://calendly.com/idharmiksoni/30min" target="_blank" rel="noopener noreferrer">Book a demo →</a>
-          <a class="btn btn-ghost" href="https://calendly.com/idharmiksoni/30min" target="_blank" rel="noopener noreferrer">Talk to sales</a>
+          <div class="hero-cta-row">
+            <a class="btn btn-primary magnetic" href="https://calendly.com/idharmiksoni/30min" target="_blank" rel="noopener noreferrer">Book a demo →</a>
+            <a class="btn btn-ghost" href="https://calendly.com/idharmiksoni/30min" target="_blank" rel="noopener noreferrer">Talk to sales</a>
+          </div>
+          <div class="hero-meta">15-day free trial</div>
         </div>
-        <div class="hero-meta">15-day free trial</div>
       </div>
     </section>
 
     <footer class="footer" id="footer">
       <div class="container">
-        <div class="footer-grid">
+        <div class="footer-grid reveal-up">
           <div class="footer-brand-col">
             <a class="brand" href="./index.html"><img class="brand-logo brand-logo-full" style="height:44px" src="./ForgeaOS-logo-half.svg" alt="ForgeaOS logo" /></a>
             <p>The industrial operating system for procurement, inventory, manufacturing, maintenance, and finance.</p>
