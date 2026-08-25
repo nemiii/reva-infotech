@@ -3,9 +3,64 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Reva Infotech — Software & AI Product Studio</title>
-<meta name="description" content="Reva Infotech designs and builds custom software, web platforms, mobile apps, and practical AI products for ambitious teams." />
+<title>Reva Infotech — Custom Software & AI Development Company in Vadodara, India</title>
+<meta name="description" content="Reva Infotech designs and builds custom software, web platforms, mobile apps, and practical AI products for ambitious teams. Makers of ForgeaOS, our industrial operations platform." />
+<meta name="keywords" content="custom software development company, AI software development, web application development, mobile app development, software development company India, software development Vadodara" />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="Reva Infotech LLP" />
+<link rel="canonical" href="https://reva-infotech.com/" />
 <link rel="icon" type="image/svg+xml" href="./reva-half-logo.svg" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Reva Infotech" />
+<meta property="og:title" content="Reva Infotech — Custom Software & AI Development Company" />
+<meta property="og:description" content="Reva Infotech designs and builds custom software, web platforms, mobile apps, and practical AI products for ambitious teams. Makers of ForgeaOS." />
+<meta property="og:url" content="https://reva-infotech.com/" />
+<meta property="og:image" content="https://reva-infotech.com/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Reva Infotech — Custom Software & AI Development Company" />
+<meta name="twitter:description" content="Reva Infotech designs and builds custom software, web platforms, mobile apps, and practical AI products for ambitious teams." />
+<meta name="twitter:image" content="https://reva-infotech.com/og-image.png" />
+
+<!-- Structured data: Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://reva-infotech.com/#organization",
+  "name": "Reva Infotech",
+  "legalName": "Reva Infotech LLP",
+  "url": "https://reva-infotech.com/",
+  "logo": "https://reva-infotech.com/reva-full-logo.svg",
+  "email": "info@reva-infotech.com",
+  "foundingDate": "2026",
+  "description": "Reva Infotech designs and builds custom software, web platforms, mobile apps, and practical AI products for ambitious teams.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Vadodara",
+    "addressRegion": "Gujarat",
+    "postalCode": "390006",
+    "addressCountry": "IN"
+  },
+  "sameAs": [],
+  "makesOffer": {
+    "@type": "Offer",
+    "itemOffered": {
+      "@type": "SoftwareApplication",
+      "name": "ForgeaOS",
+      "url": "https://forgeaos.com/",
+      "applicationCategory": "BusinessApplication",
+      "description": "The industrial operating system that connects procurement, inventory, manufacturing, maintenance, workforce, and finance into one real-time platform."
+    }
+  }
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Fraunces:ital,wght@0,500;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -355,30 +410,20 @@
     opacity: 0; animation: fadeUp 0.9s var(--ease) 0.85s forwards;
   }
 
-  .hero-float { position: absolute; z-index: 1; }
-  .float-chip {
-    display: flex; align-items: center; gap: 10px;
-    padding: 11px 16px;
-    border-radius: 999px;
-    background: rgba(19,19,22,0.72);
-    border: 1px solid var(--line);
-    backdrop-filter: blur(10px);
-    font-size: 12.5px; font-weight: 500; color: var(--ink-soft);
-    box-shadow: var(--shadow-sm);
-    animation: chipFloat 5.5s ease-in-out infinite;
-    opacity: 0;
+  .hero-meta-row {
+    margin-top: 44px;
+    display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
+    gap: 12px 28px;
+    opacity: 0; animation: fadeUp 0.9s var(--ease) 1s forwards;
   }
-  .chip-tl { top: 22%; left: 6%; animation: chipFloat 5.5s ease-in-out infinite, fadeUp 0.8s var(--ease) 1s forwards; }
-  .chip-bl { bottom: 16%; left: 9%; animation: chipFloat 6.2s ease-in-out infinite 0.6s, fadeUp 0.8s var(--ease) 1.15s forwards; }
-  .chip-tr { top: 26%; right: 7%; animation: chipFloat 6s ease-in-out infinite 1s, fadeUp 0.8s var(--ease) 1.05s forwards; }
-  .chip-br { bottom: 20%; right: 6%; animation: chipFloat 5.8s ease-in-out infinite 0.3s, fadeUp 0.8s var(--ease) 1.2s forwards; }
-  @keyframes chipFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
-  .float-chip .fc-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-  .chip-tl .fc-dot, .chip-br .fc-dot { background: #6ee7a0; box-shadow: 0 0 0 3px rgba(110,231,160,0.18); }
-  .chip-bl .fc-dot, .chip-tr .fc-dot { background: var(--copper); box-shadow: 0 0 0 3px rgba(255,138,76,0.18); }
-  .float-chip strong { color: var(--ink); font-weight: 600; }
-
-  @media (max-width: 1100px) { .hero-float { display: none; } }
+  .hero-meta-item {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13px; color: var(--muted); white-space: nowrap;
+  }
+  .hero-meta-item .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  .hero-meta-item .dot.live { background: #6ee7a0; box-shadow: 0 0 0 3px rgba(110,231,160,0.18); animation: dotPulse 2s ease-in-out infinite; }
+  .hero-meta-item .dot.violet { background: var(--violet); }
+  .hero-meta-item .dot.copper { background: var(--copper); }
 
   .scroll-hint {
     position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
@@ -799,7 +844,7 @@
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
     .word { transform: none; }
-    .reveal, .reveal-scale, .reveal-side, .hero-copy, .hero-actions, .eyebrow, .float-chip { opacity: 1; transform: none; }
+    .reveal, .reveal-scale, .reveal-side, .hero-copy, .hero-actions, .hero-meta-row, .eyebrow { opacity: 1; transform: none; }
     .reveal-mask > * { clip-path: none !important; }
     .cursor-dot, .cursor-ring { display: none; }
     html.lock { overflow: auto; }
@@ -898,6 +943,11 @@
           <a class="menu-link" href="#faq" style="--md:0.3s">FAQ</a>
           <span class="menu-link-tag">Common questions</span>
         </div>
+        <div class="menu-link-row">
+          <span class="menu-link-num">07</span>
+          <a class="menu-link" href="https://forgeaos.com/" target="_blank" rel="noopener" style="--md:0.35s">ForgeaOS</a>
+          <span class="menu-link-tag">Our flagship product ↗</span>
+        </div>
       </div>
     </div>
     <div class="container menu-overlay-foot">
@@ -923,11 +973,6 @@
       <div class="orb-core"></div>
     </div>
 
-    <div class="hero-float chip-tl float-chip"><span class="fc-dot"></span>Open for new projects</div>
-    <div class="hero-float chip-tr float-chip"><span class="fc-dot"></span><strong id="localClock">--:--:--</strong>&nbsp;Vadodara, IN</div>
-    <div class="hero-float chip-bl float-chip"><span class="fc-dot"></span>Est. <strong>2026</strong></div>
-    <div class="hero-float chip-br float-chip"><span class="fc-dot"></span><strong>10+</strong>&nbsp;builders on the team</div>
-
     <div class="container">
       <div class="eyebrow"><span class="eyebrow-dot"></span>Software & AI Product Studio</div>
       <div class="hero-title-wrap">
@@ -946,6 +991,12 @@
       <div class="hero-actions">
         <a class="btn btn-primary magnetic" href="#contact" data-cursor="Go">Start a Project <span>→</span></a>
         <a class="btn btn-text magnetic" href="#work" data-cursor="View">See Our Work <span>→</span></a>
+      </div>
+      <div class="hero-meta-row">
+        <span class="hero-meta-item"><span class="dot live"></span>Open for new projects</span>
+        <span class="hero-meta-item"><span class="dot violet"></span>Vadodara, India · <span id="localClock">--:--:--</span></span>
+        <span class="hero-meta-item"><span class="dot copper"></span>Founded 2026</span>
+        <span class="hero-meta-item"><span class="dot violet"></span>10+ Builders</span>
       </div>
     </div>
     <div class="scroll-hint"><span>Scroll</span><span class="scroll-hint-track"></span></div>
@@ -1424,6 +1475,7 @@
             <img class="brand-logo" src="./reva-full-logo.svg" alt="Reva Infotech logo" />
           </a>
           <p>Building technology products that help businesses solve their most pressing problems and create lasting impact.</p>
+          <p style="margin-top:12px;"><a href="https://forgeaos.com/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;">Makers of ForgeaOS ↗</a></p>
         </div>
         <div class="footer-col">
           <h5>Company</h5>
@@ -1431,6 +1483,7 @@
             <a href="#about">About</a>
             <a href="#">Careers</a>
             <a href="#">Life at Reva</a>
+            <a href="https://forgeaos.com/" target="_blank" rel="noopener">ForgeaOS ↗</a>
           </div>
         </div>
         <div class="footer-col">
