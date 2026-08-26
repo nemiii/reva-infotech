@@ -288,7 +288,7 @@
     .nav-drawer-actions { margin-top: auto; display: grid; gap: 10px; }
     .nav-drawer-actions .btn { width: 100%; }
     @media (min-width: 981px) { .nav-drawer, .nav-drawer-backdrop { display: none; } }
-    @media (max-width: 980px) { .nav-links { display: none; } .nav-toggle { display: inline-flex; } }
+    @media (max-width: 980px) { .nav-links { display: none; } .nav-toggle { display: inline-flex; } .nav-actions .nav-login { display: none; } }
 
     /* ---------- Hero ---------- */
     .hero { position: relative; padding: 84px 0 56px; text-align: center; overflow: hidden; }
@@ -585,9 +585,9 @@
         <a class="nav-login" href="./pricing.html">Pricing</a>
         <a class="nav-login" href="https://app.forgeaos.com">Log in</a>
         <a class="btn btn-primary magnetic" href="https://calendly.com/idharmiksoni/30min" target="_blank" rel="noopener noreferrer">Book a demo</a>
-        <!-- <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-        </button> -->
+        </button>
       </div>
     </div>
   </nav>
@@ -603,9 +603,10 @@
     <ul class="nav-drawer-links">
       <li><a href="./index.html#platform">Platform</a></li>
       <li><a href="./index.html#features">Modules</a></li>
-      <li><a href="./index.html#about">Industries</a></li>
+      <li><a href="./about.html">About</a></li>
       <li><a href="./pricing.html">Pricing</a></li>
-      <li><a href="#">Log in</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+      <li><a href="https://app.forgeaos.com">Log in</a></li>
     </ul>
     <div class="nav-drawer-actions">
       <a class="btn btn-primary" href="https://calendly.com/idharmiksoni/30min" target="_blank" rel="noopener noreferrer">Book a demo</a>
@@ -810,7 +811,7 @@
     </section>
 
     <!-- ================= FEATURE GRID ================= -->
-    <section class="features">
+    <section class="features" id="features">
       <div class="blob-field" aria-hidden="true">
         <div class="blob blob--a" style="width:320px;height:320px;right:-100px;top:-80px;background:radial-gradient(circle, rgba(249,165,63,.28) 0%, transparent 72%);"></div>
         <div class="blob blob--b" style="width:260px;height:260px;left:-70px;bottom:-40px;background:radial-gradient(circle, rgba(91,124,250,.26) 0%, transparent 72%);"></div>
@@ -938,7 +939,7 @@
           <div class="footer-col">
             <h5>Company</h5>
             <a href="./about.html">About</a>
-            <a href="./index.html#contact">Contact</a>
+            <a href="./contact.html">Contact</a>
             <a href="https://calendly.com/idharmiksoni/30min" target="_blank" rel="noopener noreferrer">Book a Demo</a>
             <a href="https://reva-infotech.com/" target="_blank" rel="noopener">Reva Infotech ↗</a>
             <a href="./index.html#footer">Privacy Policy</a>
