@@ -300,7 +300,18 @@
     .brand-logo { display: block; width: auto; height: auto; object-fit: contain; filter: var(--logo-filter); }
     .brand-logo-full { height: 58px; width: auto; }
 
-    .nav-actions { display: flex; align-items: center; gap: 14px; font-size: 12px; font-weight: 700; flex: 0 0 auto; margin-left: auto; }
+    .nav-links { position: relative; display: flex; flex: 1 1 auto; justify-content: center; }
+    .nav-links-list {
+      list-style: none; display: flex; align-items: center; gap: 32px;
+      font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+      color: var(--muted);
+    }
+    .nav-links-list a { padding: 6px 2px; transition: color .2s ease; }
+    .nav-links-list a:hover, .nav-links-list a:focus-visible { color: var(--text-strong); }
+    .nav-indicator { position: absolute; bottom: -1px; height: 2px; background: var(--yellow); left: 0; width: 0; opacity: 0; }
+    @media (prefers-reduced-motion: no-preference) { .nav-indicator { transition: left .3s var(--ease-out), width .3s var(--ease-out), opacity .2s ease; } }
+
+    .nav-actions { display: flex; align-items: center; gap: 14px; font-size: 12px; font-weight: 700; flex: 0 0 auto; }
     .nav-login { color: var(--muted-2); font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
     .nav-login:hover { color: var(--text-strong); }
 
@@ -354,7 +365,7 @@
     .nav-drawer-actions { margin-top: auto; display: grid; gap: 10px; }
     .nav-drawer-actions .btn { width: 100%; }
     @media (min-width: 981px) { .nav-drawer, .nav-drawer-backdrop { display: none; } }
-    @media (max-width: 980px) { .nav-toggle { display: inline-flex; } .nav-actions .nav-login { display: none; } }
+    @media (max-width: 980px) { .nav-links { display: none; } .nav-toggle { display: inline-flex; } .nav-actions .nav-login { display: none; } }
 
     /* ---------- Hero ---------- */
     .hero { position: relative; padding: 84px 0 40px; text-align: center; overflow: hidden; }
@@ -637,6 +648,15 @@
       <a class="brand" href="./index.html">
         <img class="brand-logo brand-logo-full" src="./ForgeaOS-logo-half.svg" alt="ForgeaOS logo" />
       </a>
+
+      <div class="nav-links" id="nav-links">
+        <ul class="nav-links-list">
+          <li><a href="./about.html">About</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+          <li><a href="./pricing.html">Pricing</a></li>
+        </ul>
+        <span class="nav-indicator" id="nav-indicator" aria-hidden="true"></span>
+      </div>
 
       <div class="nav-actions">
         <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme">
@@ -1300,6 +1320,20 @@
       window.addEventListener("scroll", () => { if (!ticking) { requestAnimationFrame(updateNavState); ticking = true; } }, { passive: true });
       window.addEventListener("resize", updateNavState);
       updateNavState();
+
+      /* Nav underline indicator */
+      const navLinksWrap = document.getElementById("nav-links");
+      const navIndicator = document.getElementById("nav-indicator");
+      if (navLinksWrap && navIndicator) {
+        navLinksWrap.querySelectorAll("a").forEach((a) => {
+          a.addEventListener("mouseenter", () => {
+            navIndicator.style.left = a.offsetLeft + "px";
+            navIndicator.style.width = a.offsetWidth + "px";
+            navIndicator.style.opacity = "1";
+          });
+        });
+        navLinksWrap.addEventListener("mouseleave", () => { navIndicator.style.opacity = "0"; });
+      }
 
       /* Mobile drawer */
       const navToggle = document.getElementById("nav-toggle");
