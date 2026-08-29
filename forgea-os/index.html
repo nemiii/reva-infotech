@@ -486,6 +486,27 @@
     .social-quote cite { display: block; margin-top: 18px; font-style: normal; font-family: var(--mono); font-size: 12px; color: var(--muted-2); }
     .social-quote cite strong { color: var(--text); }
 
+    /* ---------- Blog ---------- */
+    .blog { padding: 100px 0 110px; background: var(--bg-soft); position: relative; overflow: hidden; }
+    .blog-head { text-align: center; max-width: 640px; margin: 0 auto; }
+    .blog-head .kicker { justify-content: center; }
+    .blog-head h2 { margin-top: 16px; font-size: clamp(30px, 4vw, 46px); line-height: 1.08; letter-spacing: -0.03em; font-weight: 800; }
+    .blog-grid { margin-top: 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line-soft); border: 1px solid var(--line-soft); }
+    .blog-card {
+      display: flex; flex-direction: column; background: var(--surface); padding: 34px 32px; min-height: 240px;
+      position: relative; overflow: hidden; transition: transform .3s var(--ease-out), box-shadow .3s ease;
+    }
+    .blog-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--fc-color, var(--c-indigo)); transform: scaleX(0); transform-origin: left; transition: transform .35s var(--ease-out); }
+    .blog-card:hover { box-shadow: 0 22px 44px -22px color-mix(in srgb, var(--fc-color, var(--c-indigo)) 45%, transparent); transform: translateY(-3px); z-index: 2; }
+    .blog-card:hover::before { transform: scaleX(1); }
+    .blog-card-tag { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--fc-color, var(--c-indigo)); }
+    .blog-card h3 { margin-top: 14px; font-size: clamp(18px, 2.2vw, 23px); font-weight: 800; letter-spacing: -0.01em; line-height: 1.32; }
+    .blog-card p { margin-top: 12px; color: var(--muted); font-size: 14px; line-height: 1.65; flex: 1; }
+    .blog-card-meta { margin-top: 20px; display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--text-strong); }
+    .blog-foot { margin-top: 22px; display: flex; justify-content: flex-end; }
+    .blog-foot a { font-family: var(--mono); font-size: 11.5px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; }
+    @media (max-width: 780px) { .blog-grid { grid-template-columns: 1fr; } }
+
     /* ---------- Final CTA (dark) ---------- */
     .cta-band { padding: 120px 0; background: var(--ink); color: #f1f1ee; text-align: center; position: relative; overflow: hidden; isolation: isolate; }
     .cta-band::before, .cta-band::after { content: ""; position: absolute; border-radius: 999px; pointer-events: none; z-index: -1; filter: blur(70px); opacity: 0.5; }
@@ -522,6 +543,8 @@
     /* ---------- Scroll reveal ---------- */
     .reveal-up { opacity: 0; transform: translate3d(0, 28px, 0); transition: opacity .6s ease, transform .7s var(--ease-out); }
     .reveal-up.is-visible { opacity: 1; transform: translate3d(0,0,0); }
+    .blog-grid .blog-card.reveal-up:nth-child(2) { transition-delay: .08s; }
+    .blog-grid .blog-card.reveal-up:nth-child(3) { transition-delay: .16s; }
     .feature-grid .feature-card.reveal-up:nth-child(2) { transition-delay: .08s; }
     .feature-grid .feature-card.reveal-up:nth-child(3) { transition-delay: .16s; }
     .feature-grid .feature-card.reveal-up:nth-child(4) { transition-delay: .24s; }
@@ -572,6 +595,7 @@
           <li><a href="./about.html">About</a></li>
           <li><a href="./contact.html">Contact</a></li>
           <li><a href="./pricing.html">Pricing</a></li>
+          <li><a href="./blog.html">Blog</a></li>
         </ul>
         <span class="nav-indicator" id="nav-indicator" aria-hidden="true"></span>
       </div>
@@ -603,6 +627,7 @@
       <li><a href="./index.html#features">Modules</a></li>
       <li><a href="./about.html">About</a></li>
       <li><a href="./pricing.html">Pricing</a></li>
+      <li><a href="./blog.html">Blog</a></li>
       <li><a href="./contact.html">Contact</a></li>
       <li><a href="https://app.forgeaos.com">Log in</a></li>
     </ul>
@@ -899,6 +924,37 @@
       </div>
     </section>
 
+    <!-- ================= BLOG ================= -->
+    <section class="blog" id="blog">
+      <div class="container">
+        <div class="blog-head">
+          <span class="kicker">From the blog</span>
+          <h2>Field notes on running the floor.</h2>
+        </div>
+        <div class="blog-grid">
+          <a class="blog-card reveal-up" href="./blog-reducing-unplanned-downtime.html" style="--fc-color:var(--c-teal)">
+            <span class="blog-card-tag">Maintenance</span>
+            <h3>A Plant Manager's Guide to Reducing Unplanned Downtime with Connected Maintenance Data</h3>
+            <p>Most downtime isn't a mechanical surprise — it's a data problem wearing a mechanical costume.</p>
+            <span class="blog-card-meta">Read the guide →</span>
+          </a>
+          <a class="blog-card reveal-up" href="./blog-multi-site-inventory-visibility.html" style="--fc-color:var(--c-amber)">
+            <span class="blog-card-tag">How-To</span>
+            <h3>How to Get Real-Time Inventory Visibility Across Multiple Plants (Without a Nightly Sync)</h3>
+            <p>A practical path from per-site spreadsheets to one live number — without ripping out what already works.</p>
+            <span class="blog-card-meta">Read the article →</span>
+          </a>
+          <a class="blog-card reveal-up" href="./blog-spreadsheet-hidden-costs.html" style="--fc-color:var(--c-coral)">
+            <span class="blog-card-tag">Operations</span>
+            <h3>The Real Cost of Running Procurement, Inventory, and Maintenance on Spreadsheets</h3>
+            <p>Spreadsheets feel free. They rarely are — once you count what they're actually costing you.</p>
+            <span class="blog-card-meta">Read the article →</span>
+          </a>
+        </div>
+        <div class="blog-foot"><a href="./blog.html">View all posts →</a></div>
+      </div>
+    </section>
+
     <!-- ================= FINAL CTA ================= -->
     <section class="cta-band" id="pricing">
       <div class="container">
@@ -938,6 +994,7 @@
             <h5>Company</h5>
             <a href="./about.html">About</a>
             <a href="./contact.html">Contact</a>
+            <a href="./blog.html">Blog</a>
             <a href="https://calendly.com/idharmiksoni/30min" target="_blank" rel="noopener noreferrer">Book a Demo</a>
             <a href="https://reva-infotech.com/" target="_blank" rel="noopener">Reva Infotech ↗</a>
             <a href="./privacy-policy.html">Privacy Policy</a>
